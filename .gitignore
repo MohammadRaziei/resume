@@ -1,0 +1,12 @@
+build/
+.idea/
+
+# Ignore generated files
+*.aux
+*.log
+*.out
+*.toc
+*.fdb_latexmk
+
+# Ignore temporary files
+*.tmp
