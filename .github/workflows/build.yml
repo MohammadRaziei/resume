@@ -1,0 +1,73 @@
+name: Build LaTeX document
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+
+env:
+  ROOT_FILE_NAME: resume
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    if: ${{!startsWith(github.event.head_commit.message, 'skip-build') }}
+    steps:
+      - name: Why trigger?
+        run: |
+          echo "event name: ${{ github.event_name }}"
+          echo "event action: ${{ github.event.action }}"
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ env.ROOT_FILE_NAME }}.tex
+          latexmk_use_xelatex: true
+#          texlive_version: 2022
+#          extra_fonts: |
+#            ./path/to/custom.ttf
+#            ./fonts/*.otf
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: ${{ env.ROOT_FILE_NAME }}.pdf
+
+  release:
+    name: Upload Release Asset
+    needs: [ build_latex ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: PDF
+
+      - name: Upload Release Asset
+        uses: svenstaro/upload-release-action@v2
+        if: github.event_name == 'release' && github.event.action == 'published'
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: resume*.pdf
+          file_glob: true
+          tag: ${{ github.ref }}
+          overwrite: true
+#          body: "This is my release text"
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/') && github.event_name != 'release'
+        with:
+          files: |
+            resume*.pdf
