@@ -1,5 +1,318 @@
-\documentclass{article}
+% !TEX TS-program = pdflatex
+%-------------------------
+% Rezume, a latex resume template for developers
+% Author : Nanu Panchamurthy
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
 
+% Hope this resume template helps you land an awesome job. If you found this helpful, please consider starring the github repo here, .
+%-------------------------
+
+
+
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{verbatim} % reimplements the "verbatim" and "verbatim*" environments
+
+\usepackage{titlesec} % provides an interface to sectioning commands i.e. custom elements
+
+\usepackage{color} % provides both foreground and background color management
+
+\usepackage{enumitem} % provides control over enumerate, itemize and description
+
+\usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
+
+\usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
+
+\usepackage{latexsym} % provides mathematical symbols
+
+\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+
+\usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
+
+\usepackage[hidelinks]{hyperref} % removes color and shadow of hyperlinks
+
+\usepackage[normalem]{ulem} % provides "\ul" (uline) command which will break at line breaks
+
+\usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
+\usepackage{ragged2e}
+%-----------------------------------------
+
+\input glyphtounicode % converts glyph names to unicode
+\pdfgentounicode=1 % ensures pdfs generated are ats readable
+
+%----------FONT OPTIONS-------------------
+\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+%-----------------------------------------
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+% \titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}
+%     {<before-code>}[<after-code>]
+
+% command is the sectioning command to be redefined
+% shape is the style of the font; scshape stands for small caps style
+% format is the format to be applied to whole title- label and text; absent here
+% label defines the label
+% sep is the horizontal separation between label and title body
+% before-code is the code to be executed before
+% after-code is the code to be executed after
+
+\titleformat{\section}
+{\scshape\large}{}
+{0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+\item\small{#1}
+}
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+\item\begin{tabular*}{0.96\textwidth}[t]{
+p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+}
+\textbf{#1} & #2 & #3
+\end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+\item\small{
+\begin{tabular*}{0.96\textwidth}[t]{
+l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+}
+\textbf{#1} & \textit{#2} & #3
+\end{tabular*}
+}
+}
+
+\newcommand{\resumePantaHeading}[5]{
+\item\small{
+\begin{tabular*}{0.96\textwidth}[t]{
+l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+}
+\textbf{#1} & #2 & #3 & #4 & #5
+\end{tabular*}
+}
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+\item
+\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+\item
+\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{\small#1} & {\small#2} \\
+\end{tabular*}
+}
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+\begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+
+%__________________RESUME____________________
+% You can rearrange sections in any order you may prefer
 \begin{document}
-    This is a test.
+
+%-----------CONTACT DETAILS------------------
+% Make sure all the details are correct, you can add more links in the first row of second column if needed
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{\Huge SeyedMahdi Jahanbakht \vspace{2pt}} & % row = 1, col = 1
+\\
+Location: Tehran, Iran $|$ % row = 2, col = 1
+Mobile: +989194385535 & % row = 2, col = 1
+Email: \href{mailto:mahdi.jahanbakht@gmail.com}{\uline{mahdi.jahanbakht@gmail.com}} % row = 2, col = 2
+\\
+\href{https://www.linkedin.com/in/seyedmahdi-jahanbakht-22808940}{\uline{https://www.linkedin.com/in/seyedmahdi-jahanbakht-22808940}}
+\\
+\end{tabular*}
+%--------------------------------------------
+
+
+%-----------SUMMARY--------------------------
+% Keep this short, simple and straigth to point
+
+\section{Data Scientist}
+\small{
+As a conversational AI developer with years of industry experience building natural language processing pipelines using deep learning, and machine learning, I seek a new challenging role to enhance my skills. I have a strong foundation in NLP techniques such as named entity recognition, sentiment analysis, intent detection, and text summarization. Furthermore, I am experienced in various NLP tasks such as question answering, question generation, and chatbots. In addition to technical expertise, I excel at collaborative problem-solving, communication, and learning new technologies, and I aim to leverage this well-rounded skillset and track record of shipped products to impact business objectives through innovative conversational solutions meaningfully.
+}
+%--------------------------------------------
+
+
+%--------------SKILLS------------------------
+% Add or remove resumeSectionTypes according to your needs
+
+\section{Technical Skills}
+\resumeHeadingListStart{}
+\resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, NLP, Graph Neural Networks, Data Analysis and Visualization}
+\resumeSectionType{Languages}{:}{Python, R, Java, Scala }
+\resumeSectionType{Libraries}{:}{Pytorch, Transformers, Scikit Learn, Spark (SQL, GraphX), PyG}
+\resumeSectionType{Databases}{:}{PostgreSQL, SQL Server, Oracle, Nebula Graph}
+\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Object Oriented Programming, Restful Services, gRPC}
+\resumeSectionType{Infrastructure}{:}{Linux (Ubuntu), Docker}
+\resumeHeadingListEnd{}
+%--------------------------------------------
+
+
+%-----------EXPERIENCE-----------------------
+% Distill all your talking points to small bullet points which follow the pattern "challenge-action-result" for maximum efficiency. Try to quantify (use numbers) your points whenver possible, highlist words of importance
+
+\section{Selective Work Experiences}
+\resumeHeadingListStart{}
+\resumeQuadHeading{Data Scientist}{Jul 2020 -- Present}
+{\textbf{Hamrah-e-Avval (MCI)}}{Tehran, Iran}\\
+% \justifying
+As a dedicated member of the NLP, and Graph team at Zarebin, a Persian search engine, I played a pivotal role in crafting advanced natural language processing (NLP) solutions. The core of my work focused on utilizing advanced deep learning techniques to improve user experience through effective question-answering and summarization models.
+\\My responsibilities encompassed:
+\resumeItemListStart{}
+\resumeItem{\textbf{Text Based Question Answering Model: }Inspired by SQuAD, implemented both extractive and generative models for Persian question answering, utilizing XLM-RoBERTa and mT5 respectively. These models were fine-tuned using a dataset collected from real user queries, following a method similar to the Natural Questions approach.}
+\resumeItem{\textbf{Table Based Question Answering Model: }Developed a table-based question-answering model, inspired by the Microsoft TAPEX model, using user questions and Wikipedia tables to improve the results of the text-based question-answering models.}
+\resumeItem{\textbf{Question Generation Model: }Developed a question generation model using mT5 on real user data to improve our query suggestion feature.}
+\resumeItem{\textbf{Multi Document Text Summarization: }Implemented a multi-document summarization model based on mBart, which extracts documents related to a query from a vector database (Vespa) and then employs a fine-tuned mBart to generate a comprehensive summary with references. This model was designed to work in a multi-GPU environment, leveraging GPU parallelization technologies.}
+\resumeItem{\textbf{Chatbot: }Developed a custom chatbot for MCI FAQs, using LangChain and OpenAI API alongside prompt engineering methods.}
+\resumeItemListEnd{}
+\textbf{Key skills:} Transformers, Apache spark, Redis Vector Database (redis-stack), Elastic Search, GPU parallelization (DeepSpeed)
+\resumeQuadHeading{Data Scientist}{Sep 2015 -- Feb 2019}
+{\textbf{Ansar Bank}}{Tehran, Iran}\\
+\justifying
+At Ansar Bank, I was responsible for analyzing over 4 billion transactions from more than 3 million customers, spanning eight years of data from different channels and services.
+\\ My key accomplishments include:
+\resumeItemListStart{}
+\resumeItem{\textbf{Understanding of Customer Behavior:} Enhanced our understanding of customer behavior by conducting loyalty analysis, RFM analysis, and market basket analysis of services used by customers. This allowed us to identify customer segments with high lifetime.}
+\resumeItem{\textbf{Churn and Attrition:} Implemented a churn prediction model that accurately forecasted customer churn rates and identified high-risk customers for targeted interventions.}
+\resumeItem{\textbf{Customer Lifetime Value (CLV):} Developed a customer lifetime value acquisition model to prioritize acquisition/retention efforts and allocate the marketing budget more effectively.}
+\resumeItem{\textbf{Customer-Product Interaction:} I designed and implemented a module to analyze customers' sequences of purchases in different levels of loans and deposits, with the goal of anticipating future revenue and discovering customer-product interaction models.}
+\resumeItemListEnd{}
+\textbf{Key skills:} R, Python, Data Analysis, ETL, Customer Behavior Analysis, Customer Loyalty and Churn Prediction, Temporal Behavior Analysis, Machine Learning, Revenue Forecasting, Customer-Product Interaction Modeling, Data Visualization.
+
+\resumeQuadHeading{Software Developer}{Apr 2013 -- Dec 2016}
+{\textbf{Arman Rayan Sharif}}{Tehran, Iran}\\
+\justifying
+As a Data Scientist and Developer, I have worked on several projects aimed at analyzing and understanding the flow of news and information.
+\\ My key accomplishments include:
+\resumeItemListStart{}
+\resumeItem{\textbf{Diffusion Analysis and Detection Module:} Implemented a module that analyzed more than 1 million news web pages and built the underlying graph of news flow. I used graph analysis algorithms to create the diffusion analysis and detection module.}
+\resumeItem{\textbf{Text Processing Algorithms:} Developed a Persian main content extractor. I also created text normalization, tokenization, near duplicate detection, and Named Entity Recognition (NER) modules for the Persian language using the Stanford NLP library.}
+\resumeItem{\textbf{Distributed Graph Mining Algorithms:} Leveraged Apache Spark \& Hadoop to develop distributed graph mining algorithms for link prediction, community detection, and community tracking. These algorithms helped us to understand the flow of information and identify key players in news networks.}
+\resumeItemListEnd{}
+\textbf{Key skills:} Java, Graph analysis, Text processing, Text mining, Apache Spark, Community detection, Link prediction, Community tracking.
+\resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------EDUCATION-------------------------
+% Mention your CGPA, if its good, in the first row of second column
+
+\section{Education}
+\resumeHeadingListStart{}
+\resumeQuadHeading{Azad University, Science and Research Branch}{Tehran, Iran}
+{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
+\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals
+\resumeQuadHeading{University of Isfahan}{Isfahan, Iran}
+{M.Sc. in Artificial Intelligence and Robotics}{15.6/20 $|$ 2013}
+\textbf{Thesis Title:} Trust Prediction in Signed Social Networks
+\resumeQuadHeading{Zanjan University (ZNU)}{Zanjan, Iran}
+{B.Sc. in Software Engineering }{17.29/20 $|$ 2010}
+\resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------English Proficiency--------------------------
+% Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
+
+\section{English Proficiency}
+\resumeHeadingListStart{}
+\resumeTrioHeading{TOEFL}{Reading: 28, Listening: 28, Speaking:22, Writing:23}{Total: 101}
+\resumeTrioHeading{GRE}{Verbal Reasoning: 148, Quantitative Reasoning: 159, Analytical Writing: 3, Writing:23}{Total: 310}
+
+\resumeHeadingListEnd{}
+%--------------------------------------------
+%-----------References--------------------------
+% Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
+
+\section{References}
+\resumeHeadingListStart{}
+\resumeTrioHeading{Managers:}{}{}
+\resumeItemListStart{}
+\resumeItem{\textbf{Hamrah e Avval}, Dr. Reza Kazemi, Ph.D.: Sharif University of Technology, {\href{http://linkedin.com/in/reza-kazemi-b6541087}{\uline{LinkedIn}}}, {\href{mailto:rezakazemi.reza@gmail.com}{\uline{E-Mail}}}}
+\resumeItem{\textbf{Ansar Bank}, Dr. Mohammad Mehrabioun, Ph.D.: Allameh Tabataba'I university, {\href{https://linkedin.com/in/mohammad-mehrabioun-13b82ab}{\uline{LinkedIn}}}, {\href{mailto:mehrabioun@gmail.com}{\uline{E-Mail}}}}
+\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Hamid Reza Qodmanan, Ph.D.: Iran University of Science and Technology, {\href{https://linkedin.com/in/qodmanan}{\uline{LinkedIn}}}, {\href{mailto:qodmanan@gmail.com}{\uline{E-Mail}}}}
+\resumeItemListEnd{}
+
+\resumeTrioHeading{Co-Workers:}{}{}
+\resumeItemListStart{}
+\resumeItem{\textbf{Hamrah e Avval}, Saeed Shahsavan, {\href{https://www.linkedin.com/in/saeed-shahsavan}{\uline{LinkedIn}}}, {\href{mailto:s.shahsavan@gmail.com}{\uline{E-Mail}}}}
+\resumeItem{\textbf{Hamrah e Avval}, Dr. Naser Ahmadi, Ph.D.: Sorbonne University, {\href{http://linkedin.com/in/naser-ahmadi-ab028419a}{\uline{LinkedIn}}}, {\href{mailto:naser.ahmadi@etu.sorbonne-universite.fr}{\uline{E-Mail}}}}
+\resumeItem{\textbf{Ansar Bank}, Dr. Hossein Mousavi, Ph.D.: Université de Montréal, {\href{https://linkedin.com/in/hossein-mousavi-ba72b946}{\uline{LinkedIn}}}, {\href{mailto:mousavi.s.hossein@gmail.com}{\uline{E-Mail}}}}
+\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Amin Salehi, Ph.D.: Arizona State University, {\href{https://linkedin.com/in/amnsalehi}{\uline{LinkedIn}}}, {\href{mailto:asalehi1@asu.edu}{\uline{E-Mail}}}}
+\resumeItemListEnd{}
+\resumeHeadingListEnd{}
+%--------------------------------------------
+
+%----------------OTHERS----------------------
+% You can add your acheivements, accolades, certifications etc. here.
+
+\section{Hobbies}
+\resumeItemListStart{}
+\resumeItem{{Reading, Camping, Listening to Music, Watching Movies, Cooking, and Weight Lifting}}
+\resumeItemListEnd{}
+%--------------------------------------------
+
 \end{document}
