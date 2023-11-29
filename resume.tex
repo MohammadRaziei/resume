@@ -37,13 +37,16 @@
 
 \usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
 \usepackage{ragged2e}
+
+\usepackage{fontawesome}
 %-----------------------------------------
 
-\input glyphtounicode % converts glyph names to unicode
+\input{glyphtounicode} % converts glyph names to unicode
 \pdfgentounicode=1 % ensures pdfs generated are ats readable
 
 %----------FONT OPTIONS-------------------
-\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\usepackage[default]{sourcesanspro}
+\usepackage{graphicx} % uses the font source sans pro
 \urlstyle{same} % changes url font from default urlfont to font being used by the document
 %-----------------------------------------
 
@@ -164,7 +167,9 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 }
 \newcommand{\resumeHeadingListEnd}{\end{itemize}}
 %-------------------------------------------
-
+\newcommand{\vcenteredinclude}[2][none]{\begingroup
+\setbox0=\hbox{\includegraphics[#1]{#2}}%
+\parbox{\wd0}{\box0}\endgroup}
 
 %__________________RESUME____________________
 % You can rearrange sections in any order you may prefer
@@ -173,14 +178,23 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 %-----------CONTACT DETAILS------------------
 % Make sure all the details are correct, you can add more links in the first row of second column if needed
 
+
+
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-\textbf{\Huge SeyedMahdi Jahanbakht \vspace{2pt}} & % row = 1, col = 1
+
+\textbf{\Huge Mohammad Raziei \vspace{2pt}}
+
+&
+\vcenteredinclude[width=2.5cm]{images/profile}
 \\
-Location: Tehran, Iran $|$ % row = 2, col = 1
-Mobile: +989194385535 & % row = 2, col = 1
-Email: \href{mailto:mahdi.jahanbakht@gmail.com}{\uline{mahdi.jahanbakht@gmail.com}} % row = 2, col = 2
+\faLocationArrow\hspace{3px} Location: Tehran, Iran \space$|$\hspace{1em} % row = 2, col = 1
+\faMobile\hspace{3px} Mobile: +989105093143 & % row = 2, col = 1
 \\
-\href{https://www.linkedin.com/in/seyedmahdi-jahanbakht-22808940}{\uline{https://www.linkedin.com/in/seyedmahdi-jahanbakht-22808940}}
+\faLinkedin\hspace{3px} \uline{\url{https://www.linkedin.com/in/mohammad-raziei-595515134/}} &
+\faEnvelope\hspace{3px} Email: \hspace{8px} \href{mailto:mohammadraziei1375@gmail.com}{\uline{mohammadraziei1375@gmail.com}} % row = 2, col = 2
+\\
+\faGithub\hspace{3px} \uline{\url{https://www.github.com/mohammadraziei/}} &
+\faGlobe\hspace{3px} Website: \uline{\url{https://mohammadraziei.github.io}}
 \\
 \end{tabular*}
 %--------------------------------------------
@@ -189,7 +203,7 @@ Email: \href{mailto:mahdi.jahanbakht@gmail.com}{\uline{mahdi.jahanbakht@gmail.co
 %-----------SUMMARY--------------------------
 % Keep this short, simple and straigth to point
 
-\section{Data Scientist}
+\section{Overview}
 \small{
 As a conversational AI developer with years of industry experience building natural language processing pipelines using deep learning, and machine learning, I seek a new challenging role to enhance my skills. I have a strong foundation in NLP techniques such as named entity recognition, sentiment analysis, intent detection, and text summarization. Furthermore, I am experienced in various NLP tasks such as question answering, question generation, and chatbots. In addition to technical expertise, I excel at collaborative problem-solving, communication, and learning new technologies, and I aim to leverage this well-rounded skillset and track record of shipped products to impact business objectives through innovative conversational solutions meaningfully.
 }
@@ -201,12 +215,10 @@ As a conversational AI developer with years of industry experience building natu
 
 \section{Technical Skills}
 \resumeHeadingListStart{}
-\resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, NLP, Graph Neural Networks, Data Analysis and Visualization}
-\resumeSectionType{Languages}{:}{Python, R, Java, Scala }
-\resumeSectionType{Libraries}{:}{Pytorch, Transformers, Scikit Learn, Spark (SQL, GraphX), PyG}
-\resumeSectionType{Databases}{:}{PostgreSQL, SQL Server, Oracle, Nebula Graph}
-\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Object Oriented Programming, Restful Services, gRPC}
-\resumeSectionType{Infrastructure}{:}{Linux (Ubuntu), Docker}
+\resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, NLP, Graph Neural Networks, Image Processing, Signal Processing}
+\resumeSectionType{Signal Processing}{:}{Classic Communication Signal Processing, EEG, sEEG}
+\resumeSectionType{Languages}{:}{Python, C++, Cuda}
+\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding}
 \resumeHeadingListEnd{}
 %--------------------------------------------
 
@@ -262,14 +274,16 @@ As a Data Scientist and Developer, I have worked on several projects aimed at an
 
 \section{Education}
 \resumeHeadingListStart{}
-\resumeQuadHeading{Azad University, Science and Research Branch}{Tehran, Iran}
-{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
-\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals
-\resumeQuadHeading{University of Isfahan}{Isfahan, Iran}
-{M.Sc. in Artificial Intelligence and Robotics}{15.6/20 $|$ 2013}
+%\resumeQuadHeading{Azad University, Science and Research Branch}{Tehran, Iran}
+%{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
+%{\footnotesize\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals}
+\resumeQuadHeading{Sharif University of Technology}{Tehran, Iran}
+{M.Sc. in Biomedical Engineering - Electrical Engineering Department}{2019 - 2022}
 \textbf{Thesis Title:} Trust Prediction in Signed Social Networks
-\resumeQuadHeading{Zanjan University (ZNU)}{Zanjan, Iran}
-{B.Sc. in Software Engineering }{17.29/20 $|$ 2010}
+\resumeQuadHeading{Amirkabir University of Technology}{Tehran, Iran}
+{B.Sc. in Software Engineering - Computer Engineering Department}{2017 - 2020}
+\resumeQuadHeading{Amirkabir University of Technology}{Tehran, Iran}
+{B.Sc. in Communication Systems - Electrical Engineering Department}{2015 - 2019}
 \resumeHeadingListEnd{}
 %---------------------------------------------
 
@@ -277,33 +291,33 @@ As a Data Scientist and Developer, I have worked on several projects aimed at an
 %-----------English Proficiency--------------------------
 % Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
 
-\section{English Proficiency}
-\resumeHeadingListStart{}
-\resumeTrioHeading{TOEFL}{Reading: 28, Listening: 28, Speaking:22, Writing:23}{Total: 101}
-\resumeTrioHeading{GRE}{Verbal Reasoning: 148, Quantitative Reasoning: 159, Analytical Writing: 3, Writing:23}{Total: 310}
-
-\resumeHeadingListEnd{}
+%\section{English Proficiency}
+%\resumeHeadingListStart{}
+%\resumeTrioHeading{TOEFL}{Reading: 28, Listening: 28, Speaking:22, Writing:23}{Total: 101}
+%\resumeTrioHeading{GRE}{Verbal Reasoning: 148, Quantitative Reasoning: 159, Analytical Writing: 3, Writing:23}{Total: 310}
+%
+%\resumeHeadingListEnd{}
 %--------------------------------------------
 %-----------References--------------------------
 % Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
-
-\section{References}
-\resumeHeadingListStart{}
-\resumeTrioHeading{Managers:}{}{}
-\resumeItemListStart{}
-\resumeItem{\textbf{Hamrah e Avval}, Dr. Reza Kazemi, Ph.D.: Sharif University of Technology, {\href{http://linkedin.com/in/reza-kazemi-b6541087}{\uline{LinkedIn}}}, {\href{mailto:rezakazemi.reza@gmail.com}{\uline{E-Mail}}}}
-\resumeItem{\textbf{Ansar Bank}, Dr. Mohammad Mehrabioun, Ph.D.: Allameh Tabataba'I university, {\href{https://linkedin.com/in/mohammad-mehrabioun-13b82ab}{\uline{LinkedIn}}}, {\href{mailto:mehrabioun@gmail.com}{\uline{E-Mail}}}}
-\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Hamid Reza Qodmanan, Ph.D.: Iran University of Science and Technology, {\href{https://linkedin.com/in/qodmanan}{\uline{LinkedIn}}}, {\href{mailto:qodmanan@gmail.com}{\uline{E-Mail}}}}
-\resumeItemListEnd{}
-
-\resumeTrioHeading{Co-Workers:}{}{}
-\resumeItemListStart{}
-\resumeItem{\textbf{Hamrah e Avval}, Saeed Shahsavan, {\href{https://www.linkedin.com/in/saeed-shahsavan}{\uline{LinkedIn}}}, {\href{mailto:s.shahsavan@gmail.com}{\uline{E-Mail}}}}
-\resumeItem{\textbf{Hamrah e Avval}, Dr. Naser Ahmadi, Ph.D.: Sorbonne University, {\href{http://linkedin.com/in/naser-ahmadi-ab028419a}{\uline{LinkedIn}}}, {\href{mailto:naser.ahmadi@etu.sorbonne-universite.fr}{\uline{E-Mail}}}}
-\resumeItem{\textbf{Ansar Bank}, Dr. Hossein Mousavi, Ph.D.: Université de Montréal, {\href{https://linkedin.com/in/hossein-mousavi-ba72b946}{\uline{LinkedIn}}}, {\href{mailto:mousavi.s.hossein@gmail.com}{\uline{E-Mail}}}}
-\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Amin Salehi, Ph.D.: Arizona State University, {\href{https://linkedin.com/in/amnsalehi}{\uline{LinkedIn}}}, {\href{mailto:asalehi1@asu.edu}{\uline{E-Mail}}}}
-\resumeItemListEnd{}
-\resumeHeadingListEnd{}
+%
+%\section{References}
+%\resumeHeadingListStart{}
+%\resumeTrioHeading{Managers:}{}{}
+%\resumeItemListStart{}
+%\resumeItem{\textbf{Hamrah e Avval}, Dr. Reza Kazemi, Ph.D.: Sharif University of Technology, {\href{http://linkedin.com/in/reza-kazemi-b6541087}{\uline{LinkedIn}}}, {\href{mailto:rezakazemi.reza@gmail.com}{\uline{E-Mail}}}}
+%\resumeItem{\textbf{Ansar Bank}, Dr. Mohammad Mehrabioun, Ph.D.: Allameh Tabataba'I university, {\href{https://linkedin.com/in/mohammad-mehrabioun-13b82ab}{\uline{LinkedIn}}}, {\href{mailto:mehrabioun@gmail.com}{\uline{E-Mail}}}}
+%\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Hamid Reza Qodmanan, Ph.D.: Iran University of Science and Technology, {\href{https://linkedin.com/in/qodmanan}{\uline{LinkedIn}}}, {\href{mailto:qodmanan@gmail.com}{\uline{E-Mail}}}}
+%\resumeItemListEnd{}
+%
+%\resumeTrioHeading{Co-Workers:}{}{}
+%\resumeItemListStart{}
+%\resumeItem{\textbf{Hamrah e Avval}, Saeed Shahsavan, {\href{https://www.linkedin.com/in/saeed-shahsavan}{\uline{LinkedIn}}}, {\href{mailto:s.shahsavan@gmail.com}{\uline{E-Mail}}}}
+%\resumeItem{\textbf{Hamrah e Avval}, Dr. Naser Ahmadi, Ph.D.: Sorbonne University, {\href{http://linkedin.com/in/naser-ahmadi-ab028419a}{\uline{LinkedIn}}}, {\href{mailto:naser.ahmadi@etu.sorbonne-universite.fr}{\uline{E-Mail}}}}
+%\resumeItem{\textbf{Ansar Bank}, Dr. Hossein Mousavi, Ph.D.: Université de Montréal, {\href{https://linkedin.com/in/hossein-mousavi-ba72b946}{\uline{LinkedIn}}}, {\href{mailto:mousavi.s.hossein@gmail.com}{\uline{E-Mail}}}}
+%\resumeItem{\textbf{Arman Rayan Sharif}, Dr. Amin Salehi, Ph.D.: Arizona State University, {\href{https://linkedin.com/in/amnsalehi}{\uline{LinkedIn}}}, {\href{mailto:asalehi1@asu.edu}{\uline{E-Mail}}}}
+%\resumeItemListEnd{}
+%\resumeHeadingListEnd{}
 %--------------------------------------------
 
 %----------------OTHERS----------------------
@@ -311,7 +325,7 @@ As a Data Scientist and Developer, I have worked on several projects aimed at an
 
 \section{Hobbies}
 \resumeItemListStart{}
-\resumeItem{{Reading, Camping, Listening to Music, Watching Movies, Cooking, and Weight Lifting}}
+\resumeItem{{Reading, Solving Rubik, Listening to Music, Watching Movies, Going on a Trip,  Playing Multiplayer game}}
 \resumeItemListEnd{}
 %--------------------------------------------
 

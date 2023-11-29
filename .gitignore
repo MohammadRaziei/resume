@@ -8,7 +8,10 @@ build/
 *.toc
 *.fdb_latexmk
 *.synctex.gz
+*.fls
 
 # Ignore temporary files
 *.tmp
+
+# Ignore output files
 *.pdf
