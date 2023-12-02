@@ -23,6 +23,7 @@
 
 \usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
 
+\usepackage{multicol,array}
 \usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
 
 \usepackage{latexsym} % provides mathematical symbols
@@ -38,15 +39,25 @@
 \usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
 \usepackage{ragged2e}
 
-\usepackage{fontawesome}
+\usepackage{kpfonts}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+
 %-----------------------------------------
 
 \input{glyphtounicode} % converts glyph names to unicode
 \pdfgentounicode=1 % ensures pdfs generated are ats readable
 
+%-----------------------------------------
+\newlist{subitemize}{itemize}{3}
+\setlist[subitemize]{label=$\hookrightarrow$,before={\vspace{-4px}\raggedright}, resume,leftmargin=*}
+
 %----------FONT OPTIONS-------------------
 \usepackage[default]{sourcesanspro}
-\usepackage{graphicx} % uses the font source sans pro
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{textcomp} % uses the font source sans pro
 \urlstyle{same} % changes url font from default urlfont to font being used by the document
 %-----------------------------------------
 
@@ -178,8 +189,6 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 %-----------CONTACT DETAILS------------------
 % Make sure all the details are correct, you can add more links in the first row of second column if needed
 
-
-
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 
 \textbf{\Huge Mohammad Raziei \vspace{2pt}}
@@ -187,8 +196,15 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 &
 \vcenteredinclude[width=2.5cm]{images/profile}
 \\
-\faLocationArrow\hspace{3px} Location: Tehran, Iran \space$|$\hspace{1em} % row = 2, col = 1
-\faMobile\hspace{3px} Mobile: +989105093143 & % row = 2, col = 1
+\multicolumn{2}{l}{
+\begin{tabular}{l@{\quad|\quad}l@{\quad|\quad}l}
+\faLocationArrow\hspace{3px} Location: Tehran, Iran  % row = 2, col = 1
+&
+\faMobile\hspace{3px} Mobile: +989105093143   % row = 2, col = 1
+&
+\faTelegram\hspace{3px} Telegram: \href{https://t.me/mohammadraziei}{\uline{@mohammadraziei}}
+\end{tabular}
+}
 \\
 \faLinkedin\hspace{3px} \uline{\url{https://www.linkedin.com/in/mohammad-raziei-595515134/}} &
 \faEnvelope\hspace{3px} Email: \hspace{8px} \href{mailto:mohammadraziei1375@gmail.com}{\uline{mohammadraziei1375@gmail.com}} % row = 2, col = 2
@@ -200,6 +216,8 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 %--------------------------------------------
 
 
+
+
 %-----------SUMMARY--------------------------
 % Keep this short, simple and straigth to point
 
@@ -208,6 +226,44 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 As a conversational AI developer with years of industry experience building natural language processing pipelines using deep learning, and machine learning, I seek a new challenging role to enhance my skills. I have a strong foundation in NLP techniques such as named entity recognition, sentiment analysis, intent detection, and text summarization. Furthermore, I am experienced in various NLP tasks such as question answering, question generation, and chatbots. In addition to technical expertise, I excel at collaborative problem-solving, communication, and learning new technologies, and I aim to leverage this well-rounded skillset and track record of shipped products to impact business objectives through innovative conversational solutions meaningfully.
 }
 %--------------------------------------------
+%-----------EDUCATION-------------------------
+% Mention your CGPA, if its good, in the first row of second column
+
+\section{Education}
+\resumeHeadingListStart{}
+%\resumeQuadHeading{Azad University, Science and Research Branch}{Tehran, Iran}
+%{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
+%{\footnotesize\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals}
+
+% EE SHARIF
+\resumeQuadHeading{\faGraduationCap\hspace{3px} Sharif University of Technology}{Tehran, Iran}
+{\textbf{M.Sc.} in Biomedical Engineering - Electrical Engineering Department}{2019 - 2022}
+\begin{subitemize}
+	\item\textbf{Thesis Title:}
+		\textit{Undersampled MRI Image Reconstruction}.
+	\item[]\textbf{Explanation:}
+		This dissertation was successfully defended in early 2022 with a very good grade. Subsequently, it was selected by the university as a confidential project for up to 5 years to complete the work related to the article and its patent registration.
+\end{subitemize}
+\vspace{.5em}
+% CE AUT
+\resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
+{\textbf{B.Sc.} in Software Engineering - Computer Engineering Department}{2017 - 2020}
+\begin{subitemize}
+	\item\textbf{Explanation:}
+%		Due to having exceptional conditions, I pursued my studies not only in Electrical Engineering but also in Computer Science as my second field of study through the University of Elite Talents Foundation.
+Due to having excellent conditions resulting from my undergraduate GPA and ranking in the national university entrance exam (461), I pursued further studies in the field of computer science in addition to electrical engineering, through the University's Elite Talents Foundation.
+\end{subitemize}
+\vspace{.5em}
+% EE AUT
+\resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
+{\textbf{B.Sc}. in Communication Systems - Electrical Engineering Department}{2015 - 2019}
+\begin{subitemize}
+	\item\textbf{Thesis Title:} \textit{Reinforcement Learning based Algorithm to Control Autonomous vehicles}.
+	\item[]\textbf{Award:}
+		This dissertation awarded the top rank in the industry at the end of 2019. This event was held with the evaluation of a panel of electrical professors and industry judges.
+\end{subitemize}
+\resumeHeadingListEnd{}
+%---------------------------------------------
 
 
 %--------------SKILLS------------------------
@@ -216,8 +272,8 @@ As a conversational AI developer with years of industry experience building natu
 \section{Technical Skills}
 \resumeHeadingListStart{}
 \resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, NLP, Graph Neural Networks, Image Processing, Signal Processing}
-\resumeSectionType{Signal Processing}{:}{Classic Communication Signal Processing, EEG, sEEG}
-\resumeSectionType{Languages}{:}{Python, C++, Cuda}
+\resumeSectionType{Signal Processing}{:}{Classic Communication Signal Processing, AI-based Signal Processing, Automatic Modulation Recognition (AMR), EEG / streo-EEG Processing for Imaginary Speech Recognition}
+\resumeSectionType{Languages}{:}{Python, C++, Cuda, Matlab, JavaScript}
 \resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding}
 \resumeHeadingListEnd{}
 %--------------------------------------------
@@ -265,25 +321,6 @@ As a Data Scientist and Developer, I have worked on several projects aimed at an
 \resumeItem{\textbf{Distributed Graph Mining Algorithms:} Leveraged Apache Spark \& Hadoop to develop distributed graph mining algorithms for link prediction, community detection, and community tracking. These algorithms helped us to understand the flow of information and identify key players in news networks.}
 \resumeItemListEnd{}
 \textbf{Key skills:} Java, Graph analysis, Text processing, Text mining, Apache Spark, Community detection, Link prediction, Community tracking.
-\resumeHeadingListEnd{}
-%---------------------------------------------
-
-
-%-----------EDUCATION-------------------------
-% Mention your CGPA, if its good, in the first row of second column
-
-\section{Education}
-\resumeHeadingListStart{}
-%\resumeQuadHeading{Azad University, Science and Research Branch}{Tehran, Iran}
-%{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
-%{\footnotesize\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals}
-\resumeQuadHeading{Sharif University of Technology}{Tehran, Iran}
-{M.Sc. in Biomedical Engineering - Electrical Engineering Department}{2019 - 2022}
-\textbf{Thesis Title:} Trust Prediction in Signed Social Networks
-\resumeQuadHeading{Amirkabir University of Technology}{Tehran, Iran}
-{B.Sc. in Software Engineering - Computer Engineering Department}{2017 - 2020}
-\resumeQuadHeading{Amirkabir University of Technology}{Tehran, Iran}
-{B.Sc. in Communication Systems - Electrical Engineering Department}{2015 - 2019}
 \resumeHeadingListEnd{}
 %---------------------------------------------
 
