@@ -118,8 +118,10 @@
 
 % resumeItem renders a bullet point
 \newcommand{\resumeItem}[1]{
-\item\small{#1}
+\item{\small{#1}}
 }
+\newcommand{\resumeItemScore}[2]{\item[]\small#1\hfill#2}
+
 
 % commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
 \newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
@@ -171,6 +173,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \textbf{\small#1} & {\small#2} \\
 \end{tabular*}
 }
+
 
 % commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
 \newcommand{\resumeHeadingListStart}{
@@ -237,7 +240,7 @@ As a conversational AI developer with years of industry experience building natu
 
 % EE SHARIF
 \resumeQuadHeading{\faGraduationCap\hspace{3px} Sharif University of Technology}{Tehran, Iran}
-{\textbf{M.Sc.} in Biomedical Engineering - Electrical Engineering Department}{2019 - 2022}
+{\textbf{M.Sc.} in Biomedical Engineering - Electrical Engineering Department}{2019 -- 2022}
 \begin{subitemize}
 	\item\textbf{Thesis Title:}
 		\textit{Undersampled MRI Image Reconstruction}.
@@ -247,7 +250,7 @@ As a conversational AI developer with years of industry experience building natu
 \vspace{.5em}
 % CE AUT
 \resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
-{\textbf{B.Sc.} in Software Engineering - Computer Engineering Department}{2017 - 2020}
+{\textbf{B.Sc.} in Software Engineering - Computer Engineering Department}{2017 -- 2020}
 \begin{subitemize}
 	\item\textbf{Explanation:}
 %		Due to having exceptional conditions, I pursued my studies not only in Electrical Engineering but also in Computer Science as my second field of study through the University of Elite Talents Foundation.
@@ -256,7 +259,7 @@ Due to having excellent conditions resulting from my undergraduate GPA and ranki
 \vspace{.5em}
 % EE AUT
 \resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
-{\textbf{B.Sc}. in Communication Systems - Electrical Engineering Department}{2015 - 2019}
+{\textbf{B.Sc}. in Communication Systems - Electrical Engineering Department}{2015 -- 2019}
 \begin{subitemize}
 	\item\textbf{Thesis Title:} \textit{Reinforcement Learning based Algorithm to Control Autonomous vehicles}.
 	\item[]\textbf{Award:}
@@ -264,6 +267,46 @@ Due to having excellent conditions resulting from my undergraduate GPA and ranki
 \end{subitemize}
 \resumeHeadingListEnd{}
 %---------------------------------------------
+\section{Some Scores}
+%\resumeHeadingListStart{}
+%
+\resumeHeadingListStart{}
+\resumeQuadHeading{Master}{}{}{}\\\vspace{-1.5em}
+
+\begin{multicols}{2}
+\resumeItemListStart{}
+\resumeItemScore{Graph Signal Processing (GSP)}{$20$}
+\resumeItemScore{Parallel Programming}{$20$}
+\resumeItemScore{Deep Learning}{$20$}
+\resumeItemScore{Medical Imaging}{$18.5$}
+\resumeItemScore{Compressed Sensing (CS)}{$18.3$}
+\resumeItemScore{Medical Image Analysis and Processing (MIAP)}{$18$}
+\resumeItemScore{Blind Source Separation (BSS)}{$17.6$}
+\resumeItemScore{Adaptive Filter}{$17$}
+\resumeItemListEnd{}
+\end{multicols}
+
+
+\resumeQuadHeading{Bachelor}{}{}{}\\\vspace{-1.5em}
+\begin{multicols}{2}
+\resumeItemListStart{}
+\resumeItemScore{Advanced Programming (AP)}{$19.19$}
+\resumeItemScore{Electromagnetics}{$20$}
+\resumeItemScore{Digital Signal Processing (DSP)}{$20$}
+\resumeItemScore{Computing Programming}{$20$}
+\resumeItemScore{Logic Circuits}{$20$}
+\resumeItemScore{Signals \& Systems}{$18.42$}
+\resumeItemScore{Foundation of Matrix and Linear Algebra}{$18.8$}
+\resumeItemScore{Computer Architecture \& Microprocessors}{$20$}
+\resumeItemScore{Computer Networks}{$17.2$}
+\resumeItemScore{Communication Systems}{$17.25$}
+\resumeItemListEnd{}
+\end{multicols}
+
+\resumeHeadingListEnd{}
+
+
+%
 
 
 %--------------SKILLS------------------------
@@ -271,10 +314,10 @@ Due to having excellent conditions resulting from my undergraduate GPA and ranki
 
 \section{Technical Skills}
 \resumeHeadingListStart{}
-\resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, NLP, Graph Neural Networks, Image Processing, Signal Processing}
+\resumeSectionType{Data Science}{:}{Machine Learning, Deep Learning, Reinforcement Learning, NLP, Graph Neural Networks, Image Processing, Signal Processing}
 \resumeSectionType{Signal Processing}{:}{Classic Communication Signal Processing, AI-based Signal Processing, Automatic Modulation Recognition (AMR), EEG / streo-EEG Processing for Imaginary Speech Recognition}
 \resumeSectionType{Languages}{:}{Python, C++, Cuda, Matlab, JavaScript}
-\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding}
+\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding, Clean Architecture}
 \resumeHeadingListEnd{}
 %--------------------------------------------
 
@@ -282,8 +325,11 @@ Due to having excellent conditions resulting from my undergraduate GPA and ranki
 %-----------EXPERIENCE-----------------------
 % Distill all your talking points to small bullet points which follow the pattern "challenge-action-result" for maximum efficiency. Try to quantify (use numbers) your points whenver possible, highlist words of importance
 
-\section{Selective Work Experiences}
+\section{Selective Experiences}
 \resumeHeadingListStart{}
+\resumeQuadHeading{Amirkabir Parsian Robotics}{Mar 2016 -- Des 2016}
+{member of AI Team}{Tehran, Iran}\\
+
 \resumeQuadHeading{Data Scientist}{Jul 2020 -- Present}
 {\textbf{Hamrah-e-Avval (MCI)}}{Tehran, Iran}\\
 % \justifying
