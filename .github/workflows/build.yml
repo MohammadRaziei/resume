@@ -41,6 +41,21 @@ jobs:
           name: PDF
           path: resume*.pdf
 
+  deploy:
+    name: Upload Release Asset
+    needs: [ build_latex ]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/download-artifact@v3
+        with: # download all PDF files
+          name: PDF
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
   release:
     name: Upload Release Asset
     needs: [ build_latex ]
@@ -56,3 +71,4 @@ jobs:
         with:
           files: |
             *.pdf
+      
