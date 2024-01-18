@@ -29,17 +29,20 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
-#          latexmk_use_xelatex: true
-#          texlive_version: 2022
-#          extra_fonts: |
-#            ./path/to/custom.ttf
-#            ./fonts/*.otf
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: PDF
           path: resume*.pdf
+
+      - name: Upload DEPLOY file
+        uses: actions/upload-artifact@v3
+        with:
+          name: DEPLOY
+          path: |
+            resume.pdf
+            index.html
 
   deploy:
     name: Deploy on github pages
@@ -49,13 +52,12 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with: # download all PDF files
-          name: PDF
+          name: DEPLOY
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
