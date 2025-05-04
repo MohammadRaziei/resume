@@ -1,51 +1,486 @@
 <!DOCTYPE html>
-<!--
-                        ██             ██     ██████████████████████████       
-                       ████           ████     ███████████████████████████     
-                     ███████         ███████    ████████████████████████████   
-                    █████████       █████████    ████████████████████████████  
-                   ███████████     ███████████    ████████████████████████████ 
-                  █████████████   █████████████    ████████████████████████████
-                 ███████████████ ███████████████                    ████████████
-                █████████████████████████████████                    ███████████
-               ███████████████████████████████████                  ████████████
-              █████████████████████████████████████     ███████████████████████
-             ███████████████████████████████████████    ██████████████████████ 
-            ███████████  ██████████████  ████████████    ████████████████████  
-           ███████████    ████████████    ████████████    █████████████████    
-         ████████████    ███████████████    ███████████     █████████████      
-        ████████████    █████████████████    ███████████     ████████████      
-       ████████████    ███████████████████    ████████████    ████████████     
-      ████████████    █████████████████████    ████████████    ████████████    
-     ████████████    ███████████████████████    ████████████    ████████████   
-    ████████████    ████████████ ████████████    ████████████    ████████████  
-   ████████████    ████████████   ████████████    ████████████    ████████████ 
-  ████████████    ████████████     ████████████    ████████████    ████████████
-
- __  __       _                                         _   ____           _      _ 
-|  \/  | ___ | |__   __ _ _ __ ___  _ __ ___   __ _  __| | |  _ \ __ _ ___(_) ___(_)
-| |\/| |/ _ \| '_ \ / _` | '_ ` _ \| '_ ` _ \ / _` |/ _` | | |_) / _` |_  / |/ _ \ |
-| |  | | (_) | | | | (_| | | | | | | | | | | | (_| | (_| | |  _ < (_| |/ /| |  __/ |
-|_|  |_|\___/|_| |_|\__,_|_| |_| |_|_| |_| |_|\__,_|\__,_| |_| \_\__,_/___|_|\___|_|                              
--->
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammd Raziei's Resume</title>
-    <style> html,body{margin:0; padding:0; overflow: hidden;}</style>
-</head>
-<body>
-    <object data="https://MohammadRaziei.github.io/resume/resume.pdf" type="application/pdf" style="height:100vh; width:100%">
-      <p>
-        Your web browser doesn't have a PDF plugin.
-        Instead you can <a href="https://MohammadRaziei.github.io/resume/resume.pdf">click here to
-        download the PDF file.</a>
-      </p>
-      <iframe src="https://docs.google.com/viewer?url=https://MohammadRaziei.github.io/resume/resume.pdf" 
-        <!-- style="height:100vh; width:100%"></iframe> -->
-    </object>
+    <title>Mohammad Raziei - Professional Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg-light: #f8fafc;
+            --text-light: #1e293b;
+            --bg-dark: #0f172a;
+            --text-dark: #f8fafc;
+            --card-light: #ffffff;
+            --card-dark: #1e293b;
+        }
 
+        .dark {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .light {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        .card-light {
+            background-color: var(--card-light);
+        }
+
+        .card-dark {
+            background-color: var(--card-dark);
+        }
+
+        .pdf-container {
+            height: calc(100vh - 220px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .pdf-container {
+                height: calc(100vh - 260px);
+            }
+        }
+
+        .header-bg-light {
+            background-color: var(--primary);
+        }
+
+        .header-bg-dark {
+            background-color: #1e293b;
+        }
+
+        .download-btn {
+            transition: all 0.3s ease;
+            background-color: var(--primary);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: var(--primary-dark);
+        }
+
+        .page-controls-light {
+            background-color: #e2e8f0;
+            color: var(--text-light);
+        }
+
+        .page-controls-dark {
+            background-color: #334155;
+            color: var(--text-dark);
+        }
+
+        #pdf-render {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        canvas {
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+        }
+
+        .footer-bg-light {
+            background-color: var(--primary);
+        }
+
+        .footer-bg-dark {
+            background-color: #1e293b;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .zoom-btn {
+            transition: all 0.2s ease;
+        }
+
+        .zoom-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg);
+        }
+    </style>
+</head>
+<body class="font-sans light">
+    <div class="header-bg-light dark:header-bg-dark text-white py-6 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Mohammad Raziei</h1>
+                    <p class="text-gray-200 dark:text-gray-300 mt-1">Senior Software Engineer</p>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button id="theme-toggle" class="theme-toggle text-white text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:bg-opacity-20">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <a href="https://github.com/mohammadraziei" target="_blank" class="text-white hover:text-gray-300 transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-white hover:text-gray-300 transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+            <div class="mb-4 md:mb-0">
+                <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">My Professional Resume</h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Preview and download my comprehensive resume showcasing my skills and experience</p>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://mohammadraziei.github.io/resume/resume.pdf" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-6 rounded-lg flex items-center transition-colors">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    Open in New Tab
+                </a>
+                <a href="https://mohammadraziei.github.io/resume/resume.pdf" download class="download-btn text-white font-medium py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-download mr-2"></i>
+                    Download PDF
+                </a>
+            </div>
+        </div>
+
+        <div class="page-controls-light dark:page-controls-dark flex flex-wrap items-center justify-between mb-4 px-4 py-3 rounded-lg">
+            <div class="flex items-center space-x-2 mb-2 sm:mb-0">
+                <button id="prev-page" class="px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="page-num" class="font-medium mx-2">Page 1 of 1</span>
+                <button id="next-page" class="px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50" disabled>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button id="zoom-out" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                    <i class="fas fa-search-minus"></i>
+                    <span class="tooltiptext">Zoom Out</span>
+                </button>
+                <button id="zoom-reset" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                    <i class="fas fa-expand"></i>
+                    <span class="tooltiptext">Fit to Page</span>
+                </button>
+                <button id="zoom-in" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                    <i class="fas fa-search-plus"></i>
+                    <span class="tooltiptext">Zoom In</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="pdf-container rounded-xl overflow-hidden relative card-light dark:card-dark">
+            <div id="pdf-render"></div>
+            <div id="loading" class="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-800 bg-opacity-90">
+                <div class="spinner"></div>
+            </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <a href="mailto:mohammad@example.com" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+                <i class="fas fa-envelope mr-2"></i>
+                Email Me
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+                <i class="fab fa-linkedin mr-2"></i>
+                Connect on LinkedIn
+            </a>
+            <a href="https://github.com/mohammadraziei" target="_blank" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+                <i class="fab fa-github mr-2"></i>
+                View GitHub Profile
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer-bg-light dark:footer-bg-dark text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-200 dark:text-gray-300 mb-4 md:mb-0">© 2023 Mohammad Raziei. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set the worker path for PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
+        
+        // PDF rendering variables
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.5,
+            maxScale = 3.0,
+            minScale = 0.5,
+            canvas = document.createElement('canvas'),
+            ctx = canvas.getContext('2d');
+        
+        const url = 'https://mohammadraziei.github.io/resume/resume.pdf';
+        const pdfContainer = document.getElementById('pdf-render');
+        const loadingIndicator = document.getElementById('loading');
+        const pageNumDisplay = document.getElementById('page-num');
+        const prevBtn = document.getElementById('prev-page');
+        const nextBtn = document.getElementById('next-page');
+        const zoomInBtn = document.getElementById('zoom-in');
+        const zoomOutBtn = document.getElementById('zoom-out');
+        const zoomResetBtn = document.getElementById('zoom-reset');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Render the page
+        function renderPage(num) {
+            pageRendering = true;
+            loadingIndicator.style.display = 'flex';
+            
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                
+                const renderTask = page.render(renderContext);
+                
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    loadingIndicator.style.display = 'none';
+                    
+                    // Clear previous content and append new canvas
+                    pdfContainer.innerHTML = '';
+                    pdfContainer.appendChild(canvas);
+                    
+                    // Update page number display
+                    pageNumDisplay.textContent = `Page ${num} of ${pdfDoc.numPages}`;
+                    
+                    // Enable/disable buttons
+                    prevBtn.disabled = num <= 1;
+                    nextBtn.disabled = num >= pdfDoc.numPages;
+                });
+            });
+        }
+        
+        // Queue rendering of the next page
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+        
+        // Previous page
+        function onPrevPage() {
+            if (pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+        
+        // Next page
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+        
+        // Zoom in
+        function onZoomIn() {
+            if (scale >= maxScale) return;
+            scale += 0.25;
+            queueRenderPage(pageNum);
+        }
+        
+        // Zoom out
+        function onZoomOut() {
+            if (scale <= minScale) return;
+            scale -= 0.25;
+            queueRenderPage(pageNum);
+        }
+        
+        // Reset zoom to fit page
+        function onZoomReset() {
+            // Calculate scale to fit page width
+            const containerWidth = pdfContainer.clientWidth - 40; // Account for padding
+            pdfDoc.getPage(pageNum).then(function(page) {
+                const viewport = page.getViewport({ scale: 1.0 });
+                scale = containerWidth / viewport.width;
+                queueRenderPage(pageNum);
+            });
+        }
+        
+        // Toggle theme
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Check for saved theme preference
+        function checkTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const html = document.documentElement;
+            
+            if (savedTheme === 'dark') {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        
+        // Button event listeners
+        prevBtn.addEventListener('click', onPrevPage);
+        nextBtn.addEventListener('click', onNextPage);
+        zoomInBtn.addEventListener('click', onZoomIn);
+        zoomOutBtn.addEventListener('click', onZoomOut);
+        zoomResetBtn.addEventListener('click', onZoomReset);
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        
+        // Handle window resize
+        function handleResize() {
+            if (pdfDoc) {
+                renderPage(pageNum);
+            }
+        }
+        
+        window.addEventListener('resize', function() {
+            // Debounce resize events
+            clearTimeout(window.resizeTimer);
+            window.resizeTimer = setTimeout(handleResize, 200);
+        });
+        
+        // Initialize PDF rendering
+        function initPDF() {
+            pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+                pdfDoc = pdfDoc_;
+                pageNumDisplay.textContent = `Page 1 of ${pdfDoc.numPages}`;
+                
+                // Enable buttons
+                prevBtn.disabled = true;
+                nextBtn.disabled = pdfDoc.numPages <= 1;
+                
+                // Render first page
+                renderPage(1);
+                
+                // Adjust scale for mobile devices
+                if (window.innerWidth < 768) {
+                    scale = 1.0;
+                    renderPage(1);
+                }
+            }).catch(function(error) {
+                // Display error message
+                pdfContainer.innerHTML = `
+                    <div class="text-center p-8 text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                        <p class="text-xl font-medium mb-2">Failed to load PDF</p>
+                        <p>${error.message}</p>
+                        <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="${url}" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-lg">
+                                <i class="fas fa-external-link-alt mr-2"></i>Open in New Tab
+                            </a>
+                            <a href="${url}" download class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
+                                <i class="fas fa-download mr-2"></i>Download Instead
+                            </a>
+                        </div>
+                    </div>
+                `;
+                loadingIndicator.style.display = 'none';
+            });
+        }
+        
+        // Initialize theme and PDF when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            checkTheme();
+            initPDF();
+            
+            // Add animation to the download button on page load
+            const downloadBtn = document.querySelector('.download-btn');
+            setTimeout(() => {
+                downloadBtn.classList.add('animate-bounce');
+                setTimeout(() => {
+                    downloadBtn.classList.remove('animate-bounce');
+                }, 2000);
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

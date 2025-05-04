@@ -15,3 +15,4 @@ build/
 
 # Ignore output files
 *.pdf
+.qodo
