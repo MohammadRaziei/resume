@@ -25,7 +25,7 @@
  __  __       _                                         _   ____           _      _
 |  \/  | ___ | |__   __ _ _ __ ___  _ __ ___   __ _  __| | |  _ \ __ _ ___(_) ___(_)
 | |\/| |/ _ \| '_ \ / _` | '_ ` _ \| '_ ` _ \ / _` |/ _` | | |_) / _` |_  / |/ _ \ |
-| |  | | (_) | | | | (_| | | | | | | | | | | | (_| | (_| | |  _ < (_| |/ /| |  __/ |
+| |  | | (_) | | | | (_| | | | | | | | | | | | | | (_| | (_| | |< (_| |/ /| |  __/ |
 |_|  |_|\___/|_| |_|\__,_|_| |_| |_|_| |_| |_|\__,_|\__,_| |_| \_\__,_/___|_|\___|_|
 
 Welcome to my site. 
@@ -356,9 +356,10 @@ Author: Mohammad Raziei
             pageNum = 1,
             pageRendering = false,
             pageNumPending = null,
-            scale = 1.5,
-            maxScale = 3.0,
-            minScale = 0.5,
+            scale = 5, // High quality rendering at scale 5
+            cssScale = 1, // Initial CSS scale set to 1
+            cssMaxScale = 3.0,
+            cssMinScale = 0.3,
             canvas = document.createElement('canvas'),
             ctx = canvas.getContext('2d');
         
@@ -392,8 +393,24 @@ Author: Mohammad Raziei
                     pageRendering = false;
                     loadingIndicator.style.display = 'none';
                     
+                    // Create a wrapper div for the canvas
+                    const canvasWrapper = document.createElement('div');
+                    canvasWrapper.className = 'canvas-wrapper';
+                    canvasWrapper.style.display = 'flex';
+                    canvasWrapper.style.justifyContent = 'center';
+                    canvasWrapper.style.alignItems = 'flex-start';
+                    canvasWrapper.style.width = '100%';
+                    canvasWrapper.style.height = '100%';
+                    // Remove overflow from here
+                    canvasWrapper.style.transformOrigin = 'center top';
+                    canvasWrapper.style.transform = `scale(${cssScale})`;
+                    
+                    // Add the canvas to the wrapper
+                    canvasWrapper.appendChild(canvas);
+                    
+                    // Clear the container and add the wrapper
                     pdfContainer.innerHTML = '';
-                    pdfContainer.appendChild(canvas);
+                    pdfContainer.appendChild(canvasWrapper);
                     
                     pageNumDisplay.textContent = `Page ${num} of ${pdfDoc.numPages}`;
                     
@@ -424,24 +441,33 @@ Author: Mohammad Raziei
         }
         
         function onZoomIn() {
-            if (scale >= maxScale) return;
-            scale += 0.25;
-            queueRenderPage(pageNum);
+            // Use CSS transform to zoom in instead of re-rendering
+            if (cssScale >= cssMaxScale) return;
+            cssScale += 0.25;
+            const canvasWrapper = document.querySelector('.canvas-wrapper');
+            if (canvasWrapper) {
+                canvasWrapper.style.transform = `scale(${cssScale})`;
+            }
         }
         
         function onZoomOut() {
-            if (scale <= minScale) return;
-            scale -= 0.25;
-            queueRenderPage(pageNum);
+            // Use CSS transform to zoom out instead of re-rendering
+            if (cssScale <= cssMinScale) return;
+            cssScale -= 0.25;
+            const canvasWrapper = document.querySelector('.canvas-wrapper');
+            if (canvasWrapper) {
+                canvasWrapper.style.transform = `scale(${cssScale})`;
+            }
         }
         
         function onZoomReset() {
-            const containerWidth = pdfContainer.clientWidth - 40;
-            pdfDoc.getPage(pageNum).then(function(page) {
-                const viewport = page.getViewport({ scale: 1.0 });
-                scale = containerWidth / viewport.width;
-                queueRenderPage(pageNum);
-            });
+            // Calculate scale to fit the container
+            cssScale = 1;
+            // Calculate the scale that would make the PDF fit the container width
+            const canvasWrapper = document.querySelector('.canvas-wrapper');
+            if (canvasWrapper) {
+                canvasWrapper.style.transform = `scale(${cssScale})`;
+            }
         }
         
         function handleResize() {
