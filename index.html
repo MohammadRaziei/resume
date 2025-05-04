@@ -279,7 +279,9 @@ Author: Mohammad Raziei
         </div>
 
         <div class="pdf-container rounded-xl overflow-hidden relative card-bg">
-            <div id="pdf-render"></div>
+            <div id="pdf-render" style="margin: auto;">
+                <div class="canvas-wrapper" style="display: flex; justify-content: center; align-items: flex-start; width: 100%; height: 100%; transform: scale(1);"></div>
+            </div>
             <div id="loading" class="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-800 bg-opacity-90">
                 <div class="spinner"></div>
             </div>
@@ -402,7 +404,7 @@ Author: Mohammad Raziei
                     canvasWrapper.style.width = '100%';
                     canvasWrapper.style.height = '100%';
                     // Remove overflow from here
-                    canvasWrapper.style.transformOrigin = 'center top';
+                    canvasWrapper.style.transformOrigin = 'left top';
                     canvasWrapper.style.transform = `scale(${cssScale})`;
                     
                     // Add the canvas to the wrapper
