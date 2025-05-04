@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,9 +56,7 @@
 
         .pdf-container {
             height: calc(100vh - 220px);
-            width: 100%;
-            overflow: auto;
-            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -88,7 +87,13 @@
             transition: background-color 0.3s;
         }
 
-        
+        canvas {
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+        }
+      
         #pdf-render {
             width: 100%;
             height: 100%;
@@ -98,13 +103,6 @@
         .card-bg {
             background-color: var(--card-bg);
             transition: background-color 0.3s;
-        }
-
-        canvas {
-            margin: 0 auto;
-            display: block;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
         }
 
         .footer-bg {
@@ -180,17 +178,17 @@
         }
     </style>
 </head>
-<body class="font-sans transition-colors duration-200">
-    <div class="bg-blue-600 dark:bg-gray-800 text-white py-6 px-4 sm:px-6 lg:px-8">
+<body class="font-sans">
+    <div class="header-bg text-white py-6 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-center">
                 <div>
                     <h1 class="text-3xl font-bold">Mohammad Raziei</h1>
-                    <p class="text-gray-200 dark:text-gray-300 mt-1">Senior Software Engineer</p>
+                    <p class="text-gray-200 mt-1">Senior Software Engineer</p>
                 </div>
-                <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-4">
                     <button id="theme-toggle" class="theme-toggle text-white text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white hover:bg-opacity-20">
-                        <i class="fas fa-sun"></i>
+                        <i id="theme-icon" class="fas fa-moon"></i>
                     </button>
                     <a href="https://github.com/mohammadraziei" target="_blank" class="text-white hover:text-gray-300 transition-colors" aria-label="GitHub">
                         <i class="fab fa-github text-2xl"></i>
@@ -206,11 +204,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex flex-col md:flex-row items-center justify-between mb-6">
             <div class="mb-4 md:mb-0">
-                <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">My Professional Resume</h2>
-                <p class="text-gray-600 dark:text-gray-400 mt-1">Preview and download my comprehensive resume showcasing my skills and experience</p>
+                <h2 class="text-2xl font-semibold">My Professional Resume</h2>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">Preview and download my comprehensive resume showcasing my skills and experience</p>
             </div>
             <div class="flex space-x-4">
-                <a href="https://mohammadraziei.github.io/resume/resume.pdf" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-6 rounded-lg flex items-center transition-colors">
+                <a href="https://mohammadraziei.github.io/resume/resume.pdf" target="_blank" class="social-btn font-medium py-3 px-6 rounded-lg flex items-center">
                     <i class="fas fa-external-link-alt mr-2"></i>
                     Open in New Tab
                 </a>
@@ -221,33 +219,33 @@
             </div>
         </div>
 
-        <div class="page-controls-light dark:page-controls-dark flex flex-wrap items-center justify-between mb-4 px-4 py-3 rounded-lg">
+        <div class="page-controls flex flex-wrap items-center justify-between mb-4 px-4 py-3 rounded-lg">
             <div class="flex items-center space-x-2 mb-2 sm:mb-0">
-                <button id="prev-page" class="px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50" disabled>
+                <button id="prev-page" class="px-3 py-1 rounded hover:bg-gray-600 dark:hover:bg-gray-500 disabled:opacity-50" disabled>
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <span id="page-num" class="font-medium mx-2">Page 1 of 1</span>
-                <button id="next-page" class="px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50" disabled>
+                <button id="next-page" class="px-3 py-1 rounded hover:bg-gray-600 dark:hover:bg-gray-500 disabled:opacity-50" disabled>
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
             <div class="flex items-center space-x-2">
-                <button id="zoom-out" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                <button id="zoom-out" class="zoom-btn px-3 py-1 rounded hover:bg-gray-600 dark:hover:bg-gray-500 tooltip">
                     <i class="fas fa-search-minus"></i>
                     <span class="tooltiptext">Zoom Out</span>
                 </button>
-                <button id="zoom-reset" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                <button id="zoom-reset" class="zoom-btn px-3 py-1 rounded hover:bg-gray-600 dark:hover:bg-gray-500 tooltip">
                     <i class="fas fa-expand"></i>
                     <span class="tooltiptext">Fit to Page</span>
                 </button>
-                <button id="zoom-in" class="zoom-btn px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 tooltip">
+                <button id="zoom-in" class="zoom-btn px-3 py-1 rounded hover:bg-gray-600 dark:hover:bg-gray-500 tooltip">
                     <i class="fas fa-search-plus"></i>
                     <span class="tooltiptext">Zoom In</span>
                 </button>
             </div>
         </div>
 
-        <div class="pdf-container rounded-xl overflow-hidden relative card-light dark:card-dark">
+        <div class="pdf-container rounded-xl overflow-hidden relative card-bg">
             <div id="pdf-render"></div>
             <div id="loading" class="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-800 bg-opacity-90">
                 <div class="spinner"></div>
@@ -255,25 +253,25 @@
         </div>
 
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <a href="mailto:mohammad@example.com" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+            <a href="mailto:mohammad@example.com" class="social-btn font-medium py-3 px-4 rounded-lg flex items-center justify-center">
                 <i class="fas fa-envelope mr-2"></i>
                 Email Me
             </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-btn font-medium py-3 px-4 rounded-lg flex items-center justify-center">
                 <i class="fab fa-linkedin mr-2"></i>
                 Connect on LinkedIn
             </a>
-            <a href="https://github.com/mohammadraziei" target="_blank" class="flex items-center justify-center bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-3 px-4 rounded-lg transition-colors">
+            <a href="https://github.com/mohammadraziei" target="_blank" class="social-btn font-medium py-3 px-4 rounded-lg flex items-center justify-center">
                 <i class="fab fa-github mr-2"></i>
                 View GitHub Profile
             </a>
         </div>
     </div>
 
-    <footer class="footer-bg-light dark:footer-bg-dark text-white py-6 mt-12">
+    <footer class="footer-bg text-white py-6 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-200 dark:text-gray-300 mb-4 md:mb-0">© 2023 Mohammad Raziei. All rights reserved.</p>
+                <p class="text-gray-300 mb-4 md:mb-0">© 2023 Mohammad Raziei. All rights reserved.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-white hover:text-gray-300 transition-colors" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
@@ -290,10 +288,37 @@
     </footer>
 
     <script>
-        // Set the worker path for PDF.js
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or use preferred color scheme
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+        
+        // Apply the current theme
+        html.classList.add(currentTheme);
+        themeIcon.className = currentTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // PDF Viewer Functionality
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js';
         
-        // PDF rendering variables
         let pdfDoc = null,
             pageNum = 1,
             pageRendering = false,
@@ -313,9 +338,7 @@
         const zoomInBtn = document.getElementById('zoom-in');
         const zoomOutBtn = document.getElementById('zoom-out');
         const zoomResetBtn = document.getElementById('zoom-reset');
-        const themeToggleBtn = document.getElementById('theme-toggle');
         
-        // Render the page
         function renderPage(num) {
             pageRendering = true;
             loadingIndicator.style.display = 'flex';
@@ -336,21 +359,17 @@
                     pageRendering = false;
                     loadingIndicator.style.display = 'none';
                     
-                    // Clear previous content and append new canvas
                     pdfContainer.innerHTML = '';
                     pdfContainer.appendChild(canvas);
                     
-                    // Update page number display
                     pageNumDisplay.textContent = `Page ${num} of ${pdfDoc.numPages}`;
                     
-                    // Enable/disable buttons
                     prevBtn.disabled = num <= 1;
                     nextBtn.disabled = num >= pdfDoc.numPages;
                 });
             });
         }
         
-        // Queue rendering of the next page
         function queueRenderPage(num) {
             if (pageRendering) {
                 pageNumPending = num;
@@ -359,38 +378,32 @@
             }
         }
         
-        // Previous page
         function onPrevPage() {
             if (pageNum <= 1) return;
             pageNum--;
             queueRenderPage(pageNum);
         }
         
-        // Next page
         function onNextPage() {
             if (pageNum >= pdfDoc.numPages) return;
             pageNum++;
             queueRenderPage(pageNum);
         }
         
-        // Zoom in
         function onZoomIn() {
             if (scale >= maxScale) return;
             scale += 0.25;
             queueRenderPage(pageNum);
         }
         
-        // Zoom out
         function onZoomOut() {
             if (scale <= minScale) return;
             scale -= 0.25;
             queueRenderPage(pageNum);
         }
         
-        // Reset zoom to fit page
         function onZoomReset() {
-            // Calculate scale to fit page width
-            const containerWidth = pdfContainer.clientWidth - 40; // Account for padding
+            const containerWidth = pdfContainer.clientWidth - 40;
             pdfDoc.getPage(pageNum).then(function(page) {
                 const viewport = page.getViewport({ scale: 1.0 });
                 scale = containerWidth / viewport.width;
@@ -398,43 +411,6 @@
             });
         }
         
-        // Toggle theme
-        function toggleTheme() {
-            const html = document.documentElement;
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-        
-        // Check for saved theme preference
-        function checkTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const html = document.documentElement;
-            
-            if (savedTheme === 'dark') {
-                html.classList.add('dark');
-                themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                html.classList.remove('dark');
-                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-        
-        // Button event listeners
-        prevBtn.addEventListener('click', onPrevPage);
-        nextBtn.addEventListener('click', onNextPage);
-        zoomInBtn.addEventListener('click', onZoomIn);
-        zoomOutBtn.addEventListener('click', onZoomOut);
-        zoomResetBtn.addEventListener('click', onZoomReset);
-        themeToggleBtn.addEventListener('click', toggleTheme);
-        
-        // Handle window resize
         function handleResize() {
             if (pdfDoc) {
                 renderPage(pageNum);
@@ -442,56 +418,52 @@
         }
         
         window.addEventListener('resize', function() {
-            // Debounce resize events
             clearTimeout(window.resizeTimer);
             window.resizeTimer = setTimeout(handleResize, 200);
         });
         
-        // Initialize PDF rendering
-        function initPDF() {
-            pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-                pdfDoc = pdfDoc_;
-                pageNumDisplay.textContent = `Page 1 of ${pdfDoc.numPages}`;
-                
-                // Enable buttons
-                prevBtn.disabled = true;
-                nextBtn.disabled = pdfDoc.numPages <= 1;
-                
-                // Render first page
-                renderPage(1);
-                
-                // Adjust scale for mobile devices
-                if (window.innerWidth < 768) {
-                    scale = 1.0;
-                    renderPage(1);
-                }
-            }).catch(function(error) {
-                // Display error message
-                pdfContainer.innerHTML = `
-                    <div class="text-center p-8 text-gray-700 dark:text-gray-300">
-                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
-                        <p class="text-xl font-medium mb-2">Failed to load PDF</p>
-                        <p>${error.message}</p>
-                        <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-                            <a href="${url}" target="_blank" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 px-4 rounded-lg">
-                                <i class="fas fa-external-link-alt mr-2"></i>Open in New Tab
-                            </a>
-                            <a href="${url}" download class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
-                                <i class="fas fa-download mr-2"></i>Download Instead
-                            </a>
-                        </div>
-                    </div>
-                `;
-                loadingIndicator.style.display = 'none';
-            });
-        }
-        
-        // Initialize theme and PDF when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            checkTheme();
-            initPDF();
+        // Initialize PDF viewer
+        pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            pageNumDisplay.textContent = `Page 1 of ${pdfDoc.numPages}`;
             
-            // Add animation to the download button on page load
+            prevBtn.disabled = true;
+            nextBtn.disabled = pdfDoc.numPages <= 1;
+            
+            renderPage(1);
+            
+            if (window.innerWidth < 768) {
+                scale = 1.0;
+                renderPage(1);
+            }
+        }).catch(function(error) {
+            pdfContainer.innerHTML = `
+                <div class="text-center p-8">
+                    <i class="fas fa-exclamation-triangle text-4xl mb-4 text-red-500"></i>
+                    <p class="text-xl font-medium mb-2">Failed to load PDF</p>
+                    <p class="text-gray-600 dark:text-gray-400">${error.message}</p>
+                    <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="${url}" target="_blank" class="social-btn font-medium py-2 px-4 rounded-lg">
+                            <i class="fas fa-external-link-alt mr-2"></i>Open in New Tab
+                        </a>
+                        <a href="${url}" download class="download-btn text-white font-medium py-2 px-4 rounded-lg">
+                            <i class="fas fa-download mr-2"></i>Download Instead
+                        </a>
+                    </div>
+                </div>
+            `;
+            loadingIndicator.style.display = 'none';
+        });
+        
+        // Set up event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            prevBtn.addEventListener('click', onPrevPage);
+            nextBtn.addEventListener('click', onNextPage);
+            zoomInBtn.addEventListener('click', onZoomIn);
+            zoomOutBtn.addEventListener('click', onZoomOut);
+            zoomResetBtn.addEventListener('click', onZoomReset);
+            
+            // Animate download button on load
             const downloadBtn = document.querySelector('.download-btn');
             setTimeout(() => {
                 downloadBtn.classList.add('animate-bounce');
