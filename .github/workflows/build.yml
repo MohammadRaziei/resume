@@ -46,8 +46,8 @@ jobs:
     runs-on: ubuntu-latest
     # if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/download-artifact@v3
-        with: # download all PDF files
+      - uses: actions/download-artifact@v4
+        with: 
           name: DEPLOY
       - name: Setup Pages
         uses: actions/configure-pages@v4
