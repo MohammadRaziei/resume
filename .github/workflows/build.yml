@@ -30,21 +30,15 @@ jobs:
         with:
           root_file: resume.tex
 
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v4
-        with:
-          name: PDF
-          path: resume*.pdf
-          overwrite: true
 
       - name: Upload DEPLOY file
         uses: actions/upload-artifact@v4
         with:
           name: DEPLOY
           path: |
-            resume.pdf
-            index.html
-            overwrite: true
+            ./*.pdf
+            ./index.html
+          overwrite: true
 
   deploy:
     name: Deploy on github pages
@@ -61,6 +55,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
@@ -74,7 +69,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with: # download all PDF files
-          name: PDF
+          name: DEPLOY
 
       - name: Release
         uses: softprops/action-gh-release@v1
