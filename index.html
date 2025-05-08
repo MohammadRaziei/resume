@@ -358,10 +358,10 @@ Author: Mohammad Raziei
             pageNum = 1,
             pageRendering = false,
             pageNumPending = null,
-            scale = 5, // High quality rendering at scale 5
+            scale = 3, // High quality rendering at scale 5
             cssScale = 1, // Initial CSS scale set to 1
             cssMaxScale = 3.0,
-            cssMinScale = 0.3,
+            cssMinScale = 0.33,
             canvas = document.createElement('canvas'),
             ctx = canvas.getContext('2d');
         
@@ -380,7 +380,7 @@ Author: Mohammad Raziei
             loadingIndicator.style.display = 'flex';
             
             pdfDoc.getPage(num).then(function(page) {
-                const viewport = page.getViewport({ scale: scale });
+                const viewport = page.getViewport({ scale: scale * cssScale });
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
                 
@@ -450,6 +450,7 @@ Author: Mohammad Raziei
             if (canvasWrapper) {
                 canvasWrapper.style.transform = `scale(${cssScale})`;
             }
+            queueRenderPage(pageNum);
         }
         
         function onZoomOut() {
@@ -460,6 +461,7 @@ Author: Mohammad Raziei
             if (canvasWrapper) {
                 canvasWrapper.style.transform = `scale(${cssScale})`;
             }
+            queueRenderPage(pageNum);
         }
         
         function onZoomReset() {
@@ -470,6 +472,7 @@ Author: Mohammad Raziei
             if (canvasWrapper) {
                 canvasWrapper.style.transform = `scale(${cssScale})`;
             }
+            queueRenderPage(pageNum);
         }
         
         function handleResize() {
