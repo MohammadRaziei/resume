@@ -108,8 +108,8 @@
 % after-code is the code to be executed after
 
 \titleformat{\section}
-{\scshape\large}{}
-{0em}{\vspace{-10pt}\color{blue}}[\color{black}\titlerule\vspace{-23pt}]
+{\vspace{-5pt}\large\bf}{}
+{0em}{\vspace{-6pt}\color{blue}}[\color{black}\titlerule\vspace{-23pt}]
 %-------------------------------------
 
 
@@ -169,7 +169,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 % resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
 \newcommand{\resumeQuadHeading}[4]{
 \item
-\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{0.96\textwidth}[t]{r@{\extracolsep{\fill}}l}
 \textbf{#1} & #2 \\
 \textit{\small#3} & \textit{\small #4} \\
 \end{tabular*}
@@ -186,7 +186,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 
 % commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
 \newcommand{\resumeHeadingListStart}{
-\begin{itemize}[leftmargin=0.15in, label={}]
+\begin{itemize}[rightmargin=0.15in, label={}]
 }
 \newcommand{\resumeHeadingListEnd}{\end{itemize}}
 %-------------------------------------------
@@ -219,7 +219,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 }
 \\
 \faLinkedin\hspace{3pt} \uline{\lr{\url{https://www.linkedin.com/in/mohammadraziei/}}} &
-\faEnvelope\hspace{3pt} ایمیل: \hspace{17pt} \href{mailto:mohammadraziei1375@gmail.com}{\uline{\lr{mohammadraziei1375@gmail.com}}} % row = 2, col = 2
+\faEnvelope\hspace{3pt} ایمیل: \hspace{18pt} \href{mailto:mohammadraziei1375@gmail.com}{\uline{\lr{mohammadraziei1375@gmail.com}}} % row = 2, col = 2
 \\
 \faGithub\hspace{3pt} \uline{\lr{\url{https://www.github.com/mohammadraziei/}}} &
 \faGlobe\hspace{3pt} وب‌سایت: \uline{\lr{\url{https://mohammadraziei.github.io}}}
@@ -235,77 +235,76 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \justifying
 \section{درباره‌ من} % Translated Section Title
 \small{
-دانشمند و مهندس داده بسیار با انگیزه با پایه قوی در پردازش سیگنال (تصویر، پردازش زبان طبیعی (\lr{NLP})، صوت)، موازی‌سازی و محاسبات با عملکرد بالا (\lr{HPC}). دارای مدرک کارشناسی در سیستم‌های مخابراتی و مهندسی کامپیوتر (دانشگاه صنعتی امیرکبیر) و کارشناسی ارشد در مهندسی پزشکی (دانشگاه صنعتی شریف) با تجربه عملی در بازسازی تصویر \lr{MRI}. اکنون دانشجوی دکترا در رشته مخابرات در دانشگاه صنعتی شریف (پذیرفته شده از طریق برنامه نخبگان) هستم. تحقیقات دکترای من به بررسی کاربرد سطوح هوشمند قابل پیکربندی (\lr{RIS}) برای بهینه‌سازی محیط‌های بی‌سیم و توسعه الگوریتم‌های پیشرفته پردازش سیگنال برای مکان‌یابی با دقت بالا در سیستم‌های ارتباطی نسل آینده می‌پردازد. مسلط به توسعه بک‌اند (\lr{backend development}) و پیاده‌سازی الگوریتم‌های پیچیده، در محیط‌های همکاری تیمی رشد می‌کنم، مهارت‌های ارتباطی قوی دارم و به یادگیری مستمر برای پیشبرد نوآوری و حل چالش‌های پیچیده متعهد هستم.
+من یک پژوهشگر داده با انگیزه بالا هستم که در پردازش سیگنال (شامل تصویر، پردازش زبان طبیعی (\lr{NLP}) و صوت)، موازی‌سازی و محاسبات با عملکرد بالا (\lr{HPC}) تخصص دارم. مدارک کارشناسی خود را در رشته‌های سیستم‌های مخابراتی و مهندسی کامپیوتر از دانشگاه صنعتی امیرکبیر و مدرک کارشناسی ارشد را در مهندسی پزشکی از دانشگاه صنعتی شریف دریافت کرده‌ام و تجربه عملی در بازسازی تصاویر \lr{MRI} دارم. در حال حاضر، به عنوان دانشجوی دکترا در رشته مخابرات در دانشگاه صنعتی شریف مشغول به تحصیل هستم و از طریق برنامه نخبگان پذیرفته شده‌ام. تحقیقات دکترای من بر روی کاربرد سطوح هوشمند قابل پیکربندی مجدد (\lr{Reconfigurable Intelligent Surfaces - RIS}) برای بهینه‌سازی محیط‌های بی‌سیم و توسعه الگوریتم‌های پیشرفته پردازش سیگنال با هدف مکان‌یابی دقیق در سیستم‌های ارتباطی نسل آینده متمرکز است. در توسعه بک‌اند (\lr{backend development}) و پیاده‌سازی الگوریتم‌های پیچیده مهارت دارم، در محیط‌های تیمی به خوبی کار می‌کنم، از مهارت‌های ارتباطی قوی برخوردارم و به یادگیری مستمر برای پیشبرد نوآوری و حل چالش‌های پیچیده متعهد هستم.
 }
 %--------------------------------------------
 %-----------EDUCATION-------------------------
 % Mention your CGPA, if its good, in the first row of second column
-
-\section{تحصیلات} % Translated Section Title
+\section{تحصیلات}
 \resumeHeadingListStart{}
 
-\resumeQuadHeading{دانشگاه صنعتی شریف}{\faGraduationCap\hspace{3pt} تهران، ایران}
-{۱۴۰۳ -- اکنون}{\textbf{دکتری} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} دانشگاه صنعتی شریف}{تهران، ایران}
+{\textbf{دکتری} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}{$2024$ -- اکنون}
 \begin{subitemize}
-	\item\textbf{موضوع رساله:}
-		\textit{پردازش سیگنال سطوح هوشمند بازپیکربارپذیکر (\lr{RIS})}.
-	\item[]\textbf{توضیحات:}
-		پس از اتمام دوره خدمت سربازی، در سال ۱۴۰۳ بدون شرکت در کنکور و از طریق بنیاد ملی نخبگان وارد دوره دکتری شدم. تحقیقات من بر روی فناوری سطوح هوشمند تنظیم شونده (\lr{RIS}) متمرکز است.
-	\item[]\textbf{استاد راهنما:} دکتر م. فخارزاده (\href{https://sharif.edu/~fakharzadeh/}{\uline{وب‌سایت}})
+    \item\textbf{موضوع رساله:}
+        \textit{پردازش سیگنال سطوح هوشمند بازپیکربارپذیر (\lr{RIS})}.
+    \item[]\textbf{توضیحات:}
+        پس از اتمام خدمت سربازی، در سال $2024$ بدون شرکت در آزمون ورودی و از طریق بنیاد ملی نخبگان وارد دوره دکتری شدم. پژوهش من بر فناوری سطوح هوشمند بازپیکربارپذیر (\lr{RIS}) متمرکز است.
+    \item[]\textbf{استاد راهنما:} دکتر م. فخارزاده (\href{https://sharif.edu/~fakharzadeh/}{\uline{وب‌سایت}})
+\end{subitemize}
+
+% EE SHARIF
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} دانشگاه صنعتی شریف}{تهران، ایران}
+{\textbf{کارشناسی ارشد} مهندسی پزشکی - دانشکده مهندسی برق}{$2019$ -- $2022$}
+\begin{subitemize}
+    \item\textbf{عنوان پایان‌نامه:}
+        \textit{بازسازی تصاویر \lr{MRI} زیرنمونه‌برداری شده}.
+    \item[]\textbf{توضیحات:}
+        تسریع تصویربرداری \lr{MRI} با استفاده از \lr{compressed sensing} و تصویربرداری موازی برای بازسازی داده‌های زیرنمونه‌برداری شده. موفق به دستیابی به افزایش سرعت $10$ برابری با حفظ کیفیت تصویر بالا. دفاع موفق (اوایل $2022$)؛ پایان‌نامه تا $5$ سال محرمانه برای انتشار و ثبت اختراع.
+    \item[]\textbf{استاد راهنما:} دکتر ب. وثوقی وحدت (\href{https://ee.sharif.edu/~vahdat/}{\uline{وب‌سایت}})
 \end{subitemize}
 \vspace{.5em}
 
-\resumeQuadHeading{دانشگاه صنعتی شریف}{\faGraduationCap\hspace{3pt} تهران، ایران}
-{۱۳۹۸ -- ۱۴۰۱}{\textbf{کارشناسی ارشد} مهندسی پزشکی - دانشکده مهندسی برق}
+% CE AUT
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} دانشگاه صنعتی امیرکبیر}{تهران، ایران}
+{\textbf{کارشناسی} مهندسی نرم‌افزار - دانشکده مهندسی کامپیوتر}{$2017$ -- $2020$}
 \begin{subitemize}
-	\item\textbf{عنوان پایان‌نامه:}
-		\textit{بازسازی تصاویر \lr{MRI} زیرنمونه‌برداری شده}.
-	\item[]\textbf{توضیحات:}
-		تسریع در تصویربرداری \lr{MRI} با استفاده از تکنیک‌های \textit{سنجش فشرده (\lr{compressed sensing})} و تصویربرداری موازی برای بازسازی زیرنمونه‌برداری شده. دستیابی به افزایش سرعت ۱۰ برابری با حفظ کیفیت بالای تصویر. دفاع موفق (اوایل سال ۱۴۰۱)؛ محرمانه طبقه‌بندی شده (تا ۵ سال) برای انتشار و ثبت اختراع.
-	\item[]\textbf{استاد راهنما:} دکتر ب. وثوقی وحدت (\href{https://ee.sharif.edu/~vahdat/}{\uline{وب‌سایت}})
-	\end{subitemize}
+    \item\textbf{توضیحات:}
+        به دلیل معدل بالا و رتبه $461$ در کنکور سراسری، علاوه بر مهندسی برق، از طریق بنیاد نخبگان دانشگاه در رشته مهندسی کامپیوتر نیز ادامه تحصیل دادم.
+\end{subitemize}
 \vspace{.5em}
 
-\resumeQuadHeading{دانشگاه صنعتی امیرکبیر}{\faGraduationCap\hspace{3pt} تهران، ایران}
-{۱۳۹۶ -- ۱۳۹۹}{\textbf{کارشناسی} مهندسی نرم‌افزار - دانشکده مهندسی کامپیوتر}
+% EE AUT
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} دانشگاه صنعتی امیرکبیر}{تهران، ایران}
+{\textbf{کارشناسی} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}{$2015$ -- $2019$}
 \begin{subitemize}
-	\item[]\textbf{توضیحات:}
-		به دلیل شرایط ممتاز حاصل از معدل دوره کارشناسی و رتبه در کنکور سراسری (۴۶۱)، علاوه بر رشته مهندسی برق، از طریق بنیاد ملی نخبگان دانشگاه، در رشته کامپیوتر نیز به ادامه تحصیل پرداختم.
-	\end{subitemize}
-\vspace{.5em}
-
-\resumeQuadHeading{دانشگاه صنعتی امیرکبیر}{\faGraduationCap\hspace{3pt} تهران، ایران}
-{۱۳۹۴ -- ۱۳۹۸}{\textbf{کارشناسی} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}
-\begin{subitemize}
-	\item\textbf{عنوان پایان‌نامه:} \textit{الگوریتم مبتنی بر یادگیری تقویتی برای کنترل وسایل نقلیه خودران}.
-    \item[]\textbf{جزئیات پروژه:} توسعه \textit{\lr{Gym-Prescan}}، یک بسته پایتون که \lr{OpenAI Gym} را با پلتفرم شبیه‌سازی \lr{PreScan} مرتبط می‌کند و امکان انجام آزمایش‌های یادگیری تقویتی برای کنترل وسایل نقلیه خودران را فراهم می‌آورد. این ابزار هسته اصلی کار پایان‌نامه را تشکیل داد.
-	\item[]\textbf{جایزه:}
-		این پایان‌نامه در پایان سال ۱۳۹۸ رتبه اول صنعت را کسب کرد. این رویداد با ارزیابی هیئتی از اساتید برق و داوران صنعت برگزار شد.
-	\item[]\textbf{اساتید راهنما:} دکتر و. پوراحمدی (\href{https://aut.ac.ir/cv/2519/VAHID%20POURAHMADI}{\uline{وب‌سایت}})، دکتر ح. امین‌داور (\href{https://aut.ac.ir/cv/2200/Hamidreza-Amindavar}{\uline{وب‌سایت}})،
+    \item\textbf{عنوان پایان‌نامه:} \textit{الگوریتم مبتنی بر یادگیری تقویتی برای کنترل وسایل نقلیه خودران}.
+    \item[]\textbf{جزئیات پروژه:} توسعه بسته پایتون \lr{Gym-Prescan} برای اتصال \lr{OpenAI Gym} به پلتفرم شبیه‌سازی \lr{PreScan} و انجام آزمایش‌های یادگیری تقویتی برای کنترل خودروهای خودران؛ این ابزار هسته اصلی پایان‌نامه بود.
+    \item[]\textbf{افتخارات:}
+        این پایان‌نامه در پایان سال $2019$ موفق به کسب رتبه برتر صنعت شد. این رویداد با ارزیابی هیئت داوران متشکل از اساتید برق و داوران صنعتی برگزار شد.
+    \item[]\textbf{اساتید راهنما:} دکتر و. پوراحمدی (\href{https://aut.ac.ir/cv/2519/VAHID%20POURAHMADI}{\uline{وب‌سایت}})، دکتر ح. امین‌داور (\href{https://aut.ac.ir/cv/2200/Hamidreza-Amindavar}{\uline{وب‌سایت}})
 \end{subitemize}
 \resumeHeadingListEnd{}
-%---------------------------------------------
-\section{برخی نمرات} % Translated Section Title
-%\resumeHeadingListStart{}
-%
+%--------------------------------------------
+
+\section{برخی نمرات}
 \resumeHeadingListStart{}
-\resumeQuadHeading{کارشناسی ارشد}{}{}{}\\\vspace{-1.5em} % Translated "Master"
+\resumeQuadHeading{کارشناسی ارشد}{}{}{}\\\vspace{-1.5em}
 
 \begin{multicols}{2}
 \resumeItemListStart{}
-\resumeItemScore{پردازش سیگنال گراف (\lr{GSP})}{$20$}
+\resumeItemScore{پردازش سیگنال روی گراف (\lr{GSP})}{$20$}
 \resumeItemScore{برنامه‌نویسی موازی}{$20$}
 \resumeItemScore{یادگیری عمیق}{$20$}
 \resumeItemScore{تصویربرداری پزشکی}{$18.5$}
-\resumeItemScore{سنجش فشرده (\lr{CS})}{$18.3$}
-\resumeItemScore{تحلیل و پردازش تصاویر پزشکی (\lr{MIAP})}{$۱۸$}
-\resumeItemScore{جداسازی کور منابع (\lr{BSS})}{$17.6$}
+\resumeItemScore{فشرده‌سازی سنجشی (\lr{CS})}{$18.3$}
+\resumeItemScore{تحلیل و پردازش تصاویر پزشکی (\lr{MIAP})}{$18$}
+\resumeItemScore{جداسازی منابع کور (\lr{BSS})}{$17.6$}
 \resumeItemScore{فیلتر تطبیقی}{$17$}
 \resumeItemListEnd{}
 \end{multicols}
 
-
-\resumeQuadHeading{کارشناسی}{}{}{}\\\vspace{-1.5em} % Translated "Bachelor"
+\resumeQuadHeading{کارشناسی}{}{}{}\\\vspace{-1.5em}
 \begin{multicols}{2}
 \resumeItemListStart{}
 \resumeItemScore{پردازش سیگنال دیجیتال (\lr{DSP})}{$20$}
@@ -317,14 +316,120 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \resumeItemScore{مبانی ماتریس و جبر خطی}{$18.8$}
 \resumeItemScore{معماری کامپیوتر و ریزپردازنده‌ها}{$20$}
 \resumeItemScore{شبکه‌های کامپیوتری}{$17.2$}
-\resumeItemScore{سیستم‌های مخابراتی}{$17.5$}
+\resumeItemScore{سیستم‌های مخابراتی}{$17.25$}
 \resumeItemListEnd{}
 \end{multicols}
 
 \resumeHeadingListEnd{}
-%--------------------------------------------
 
-% The "Technical Skills" section and subsequent sections are intentionally omitted as per your request.
-% \section{مهارت‌های فنی} ...
+
+\section{مهارت‌های فنی}
+\resumeHeadingListStart{}
+\resumeSectionType{علم داده}{:}{یادگیری ماشین، یادگیری عمیق، یادگیری تقویتی، پردازش زبان طبیعی، شبکه‌های عصبی گراف، پردازش تصویر، پردازش سیگنال}
+\resumeSectionType{پردازش سیگنال}{:}{پردازش سیگنال‌های مخابراتی کلاسیک، پردازش سیگنال مبتنی بر هوش مصنوعی، شناسایی خودکار مدولاسیون (\lr{AMR})، پردازش \lr{EEG} و \lr{stereo-EEG} برای بازشناسی گفتار ذهنی}
+\resumeSectionType{سیستم‌های مخابراتی}{:}{\lr{5G}، \lr{6G}، سطح هوشمند بازپیکربارپذیر (\lr{RIS})، مکان‌یابی، ارتباطات بی‌سیم}
+\resumeSectionType{زبان‌ها}{:}{پایتون، \lr{C++}، \lr{Cuda}، \lr{Matlab}، \lr{JavaScript}}
+\resumeSectionType{برنامه‌نویسی}{:}{الگوهای طراحی، توسعه مبتنی بر تست، معماری مایکروسرویس، توسعه بسته، اتصال \lr{CPython}، معماری تمیز}
+\resumeSectionType{\lr{devops}}{:}{\lr{git}، \lr{CI/CD}، \lr{gitlab-ci}، \lr{github actions}، \lr{template repo}}
+\resumeHeadingListEnd{}
+
+
+\section{تجربیات منتخب}
+\resumeHeadingListStart{}
+
+\resumeQuadHeading{\faBuilding\hspace{3pt} شرکت آرمان}{بهمن ۱۴۰۲ -- اکنون}
+{مهندس ارشد یادگیری ماشین}{تهران، ایران}\\
+\justifying{
+    در نقش مهندس ارشد یادگیری ماشین، تمرکز من بر توسعه و پیاده‌سازی الگوریتم‌های پیشرفته برای پردازش صوت و گفتار است. مسئولیت‌هایم شامل پردازش سیگنال، طراحی مدل‌ها برای وظایفی مانند شناسایی فعالیت صوتی (\lr{VAD})، حذف نویز گفتار، شناسایی زبان و تشخیص جنسیت می‌باشد. همچنین با آموزش و راهنمایی کارآموزان در مفاهیم یادگیری ماشین و کاربردهای عملی، به رشد تیم کمک می‌کنم.
+}
+
+\justifying{\textbf{مهارت‌های کلیدی:} یادگیری ماشین، پردازش سیگنال، پردازش صوت، پردازش گفتار، \lr{VAD}، حذف نویز، شناسایی زبان، تشخیص جنسیت، \lr{Python}، منتورینگ}
+
+\resumeQuadHeading{\faBuilding\hspace{3pt} همراه اول - \lr{MCINEXT}}{بهمن ۱۴۰۰ -- بهمن ۱۴۰۲}
+{دانشمند داده - توسعه‌دهنده ارشد \lr{Python} و \lr{C++} (خدمت سربازی)}{تهران، ایران}\\
+{
+فعالیت خود را در تیم موتور جستجوی همراه اول به عنوان بخشی از خدمت سربازی آغاز کردم. حوزه‌های اصلی تمرکزم شامل تحلیل صفحات وب، هوش مصنوعی، تحلیل گراف وب، تبدیل کد \lr{Python} به \lr{C++} و اتصال آن به \lr{Python} بود. در این فرآیند با مهارت‌های \lr{DevOps} آشنا شدم و اصول زیادی از مهندسی نرم‌افزار را فرا گرفتم.
+}
+
+{\textbf{مهارت‌های کلیدی:} \lr{Qt}، \lr{C++}، \lr{Boost}، \lr{Binding}، \lr{Python}، تحلیل وب، هوش مصنوعی، تحلیل گراف، \lr{DevOps}، مهندسی نرم‌افزار، بهینه‌سازی کد}
+
+\resumeQuadHeading{\faBuilding\hspace{3pt} شرکت سونیار}{اردیبهشت ۱۳۹۷ -- دی ۱۳۹۹}
+{عضو تا سرپرست تیم پردازش سیگنال و مهندسی نرم‌افزار}{تهران، ایران}\\
+فعالیت خود را در این شرکت واقع در پارک فناوری پردیس به عنوان عضو تیم‌های پردازش سیگنال و نرم‌افزار آغاز کردم. ابتدا برای تیم نرم‌افزار مصاحبه دادم اما در هر دو بخش مشغول به کار شدم. در تیم پردازش سیگنال، سیگنال‌های مخابراتی را تحلیل و الگوریتم‌های مختلفی را در \lr{MATLAB} پیاده‌سازی کردیم. به عنوان مترجم کدهای \lr{MATLAB} به \lr{C++}، این الگوریتم‌ها را در نرم‌افزار پردازش سیگنال مبتنی بر \lr{Qt} پیاده‌سازی نمودم.
+
+سپس به سرپرست تیم برنامه‌نویسی ارتقا یافتم. پروژه‌های شرکت در حوزه‌های مخابرات و نرم‌افزار، از جمله پروژه‌های هوش مصنوعی بود. این پروژه‌ها شامل وظایفی مانند شناسایی خودکار مدولاسیون (\lr{AMR}) و مانیتورینگ بودند. همچنین پروژه‌هایی در حوزه محاسبات با کارایی بالا با استفاده از \lr{CUDA} برای موازی‌سازی انجام شد.
+
+\textbf{مهارت‌های کلیدی:} \lr{Qt}، \lr{C++}، \lr{Matlab}، \lr{Python}، پردازش سیگنال، مخابرات، شناسایی مدولاسیون، مانیتورینگ، \lr{CUDA}، رهبری تیم، پیاده‌سازی الگوریتم
+
+\resumeQuadHeading{\faBuilding\hspace{3pt} رباتیک پارسیان امیرکبیر}{اسفند ۱۳۹۴ -- آذر ۱۳۹۵}
+{عضو تیم هوش مصنوعی}{تهران، ایران}\\
+در ترم دوم کارشناسی به دلیل معدل بالا به تیم رباتیک \href{http://www.parsianrobotics.aut.ac.ir/}{\textit{رباتیک پارسیان امیرکبیر}} دعوت شدم. فعالیت خود را در تیم هوش مصنوعی آغاز کردم. تیم رباتیک پارسیان روی ربات‌های فوتبالیست کار می‌کرد و تیم‌های مختلفی داشت. حوزه فعالیت تیم، پیاده‌سازی الگوریتم‌های کنترل تیمی با استفاده از زبان \lr{C++} و فریم‌ورک \lr{Qt 4.8} بود.
+
+\textbf{مهارت‌های کلیدی:} \lr{C++}، هوش مصنوعی، الگوریتم‌ها، \lr{Qt}، رباتیک
+
+\resumeHeadingListEnd{}
+
+
+\section{تجربه تدریس}
+\resumeHeadingListStart{}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} دوره پیشرفته پایتون}{اردیبهشت ۱۴۰۴}
+{مدرس، آکادمی همراه}{۱۰ ساعت}
+\begin{subitemize}
+    \item\textbf{توضیحات:} این دوره جامع به مفاهیم پیشرفته پایتون می‌پردازد؛ از کتابخانه‌های اصلی و برنامه‌نویسی شی‌گرا تا برنامه‌نویسی تابعی، الگوهای طراحی و سرویس‌های وب. شرکت‌کنندگان مهارت توسعه برنامه‌های قدرتمند و انتشار بسته‌های پایتون خود را کسب می‌کنند.
+    \item[]\textbf{وب‌سایت:} \href{https://mohammadraziei.github.io/advanced-python-course/}{\uline{مواد دوره}}
+\end{subitemize}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} کارگاه \lr{Advanced Python in Data Science}}{بهمن ۱۴۰۳}
+{مدرس، \lr{Hamrah Academy}}{۳ ساعت}
+\begin{subitemize}
+    \item\textbf{توضیحات:} این کارگاه بر تکنیک‌های پیشرفته پایتون ویژه کاربردهای علم داده تمرکز دارد؛ شامل برنامه‌نویسی شی‌گرا پیشرفته، دکوراتورها، تایپ‌گذاری و ساخت رابط‌های تعاملی با \lr{Gradio}.
+\end{subitemize}
+
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} کارگاه برنامه‌نویسی پیشرفته \lr{C++} و \lr{Qt}}{تیر ۱۴۰۱}
+{مدرس، دانشگاه امیرکبیر}{۶ ساعت}
+\begin{subitemize}
+    \item\textbf{توضیحات:} این کارگاه به مفاهیم پیشرفته برنامه‌نویسی \lr{C++}، پوشش عمیق \lr{STL}، مبانی فریم‌ورک \lr{Qt} و سایر ویژگی‌های پیشرفته \lr{C++} برای ساخت برنامه‌های قدرتمند می‌پردازد.
+\end{subitemize}
+
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} دوره برنامه‌نویسی مقدماتی (زبان \lr{C})}{بهمن ۱۳۹۹}
+{دستیار آموزشی، دانشگاه صنعتی شریف}{}
+\begin{subitemize}
+    \item\textbf{مدرس:} دکتر ب. وثوقی وحدت
+    \item[]\textbf{توضیحات:} همکاری در تدریس مفاهیم مقدماتی برنامه‌نویسی با زبان \lr{C}، شامل اصول پایه برنامه‌نویسی و حل مسئله.
+\end{subitemize}
+\resumeHeadingListEnd{}
+
+
+
+
+\section{انتشارات}
+\resumeHeadingListStart{}
+% ---- Book ----
+\item \faBook\hspace{3pt} \textbf{یکپارچه‌سازی \lr{Simulink}، \lr{MATLAB} و \lr{Python} با استفاده از \lr{MATLAB Engine API}}. (تکمیل شده، در جستجوی ناشر)\\
+\textit{محمد رضیئی فیجانی} (\href{https://mohammadraziei.github.io}{homepage})\\
+راهنمای عملی اتصال \lr{Simulink}، \lr{MATLAB} و \lr{Python} با استفاده از \lr{MATLAB Engine API}، شامل تکنیک‌های یکپارچه‌سازی و مثال‌های واقعی برای مهندسان و پژوهشگران.
+
+\item \faBook\hspace{3pt} \textbf{مبانی پردازش سیگنال روی گراف}. (در حال نگارش)\\
+\textit{آرش امینی} (\href{https://ee.sharif.edu/~amini/}{homepage})، \textit{محمد رضیئی فیجانی} (\href{https://mohammadraziei.github.io}{homepage})\\
+\textbf{وب‌سایت:} \href{https://mohammadraziei.github.io/GSPbook}{mohammadraziei.github.io/GSPbook}\\
+این کتاب به مبانی پردازش سیگنال روی گراف می‌پردازد و مرجع اصلی درس مرتبط در دانشگاه صنعتی شریف خواهد بود.
+
+\item \faBook\hspace{3pt} \textbf{کاربرد یادگیری تقویتی در کنترل خودروهای خودران}.\\
+\textit{محمد رضیئی فیجانی} (\href{https://mohammadraziei.github.io}{homepage})\\
+انتشارات دانشگاه فرهمند، ۲۰۲۱.\\
+این کتاب به کاربرد الگوریتم‌های یادگیری تقویتی در کنترل خودروهای خودران می‌پردازد و مفاهیم پایه، چالش‌های عملی و مطالعات موردی را پوشش می‌دهد.\\
+\textbf{لینک:} \href{https://farbook.ir/BookView/61151/%d9%83%d8%a7%d8%b1%d8%a8%d8%b1%d8%af-%d9%8a%d8%a7%d8%af%da%af%d9%8a%d8%b1%d9%8a-%d8%aa%d9%82%d9%88%d9%8a%d8%aa%d9%8a-%d8%af%d8%b1-%d9%83%d9%86%d8%aa%d8%b1%d9%84-%d8%a7%d8%aa%d9%88%d9%85%d8%a8%d9%8a%d9%84-%d9%87%d8%a7%d9%8a-%d8%ae%d9%88%d8%af%d8%b1%d8%a7%d9%86}{\uline{لینک ناشر}}
+
+% ---- Journal Paper ----
+\item \faFile\hspace{3pt} \textbf{\lr{ESACT}: رویکرد بازآرایی اندیس برای حذف تداخل بانک در الگوریتم‌های جمع پیشوندی موازی بدون پدینگ حافظه اشتراکی}. ارسال شده به \textit{Journal of Parallel and Distributed Computing}، ۲۰۲۴.\\
+\textit{محمد رضیئی فیجانی} (\href{https://mohammadraziei.github.io}{homepage})، 
+\textit{رضا کاظمی} (\href{https://sina.sharif.edu/~reza.kazemi/}{homepage})، 
+\textit{متین هاشمی} (\href{https://sina.sharif.edu/~matin/}{homepage})\\
+\textbf{چکیده:} تداخل بانک به طور قابل توجهی عملکرد الگوریتم‌های موازی روی معماری \lr{GPU} را با سریالی‌سازی دسترسی به حافظه کاهش می‌دهد. این مشکل به ویژه در محاسبات جمع پیشوندی موازی (اسکن) تأثیرگذار است... ما \lr{ESACT} را معرفی می‌کنیم؛ یک الگوریتم جدید جمع پیشوندی موازی که بدون نیاز به پدینگ حافظه، تداخل بانک را حذف می‌کند. \lr{ESACT} الگوریتم \lr{Blelloch} را به یک طرح آدرس‌دهی ترتیبی با اندیس‌های بازآرایی‌شده بهینه تبدیل می‌کند...
+\resumeHeadingListEnd{}
+
+\section{سرگرمی‌ها}
+\resumeItemListStart{}
+\resumeItem{مطالعه، حل روبیک، گوش دادن به موسیقی، تماشای فیلم، سفر، بازی چندنفره، گاهی کدنویسی فرانت‌اند برای سرگرمی}
+\resumeItemListEnd{}
 
 \end{document}
