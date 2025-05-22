@@ -7,8 +7,8 @@
 % This resume template is designed to showcase professional experience and skills
 % in a clean, organized format. Feel free to modify it to suit your needs.
 %-------------------------
+%T !TEX TS-program = pdflatex
 
-% !TEX TS-program = pdflatex
 %------------PACKAGES----------------
 \documentclass[a4paper,11pt]{article}
 
@@ -25,9 +25,9 @@
 \usepackage{multicol,array}
 \usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
 
-\usepackage{latexsym} % provides mathematical symbols
+%\usepackage{latexsym} % provides mathematical symbols
 
-\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+%\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
 
 \usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
 
@@ -45,12 +45,12 @@
 
 %-----------------------------------------
 
-\input{glyphtounicode} % converts glyph names to unicode
-\pdfgentounicode=1 % ensures pdfs generated are ats readable
+%\input{glyphtounicode} % converts glyph names to unicode
+%\pdfgentounicode=1 % ensures pdfs generated are ats readable
 
 %-----------------------------------------
 \newlist{subitemize}{itemize}{3}
-\setlist[subitemize]{label=$\hookrightarrow$,before={\vspace{-4px}\raggedright\justifying}, resume,leftmargin=*}
+\setlist[subitemize]{label=$\hookrightarrow$,before={\vspace{-4pt}\raggedright\justifying}, resume,leftmargin=*}
 
 %----------FONT OPTIONS-------------------
 \usepackage[default]{sourcesanspro}
@@ -200,19 +200,19 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \\
 \multicolumn{2}{l}{
 \begin{tabular}{l@{\quad|\quad}l@{\quad|\quad}l}
-\faLocationArrow\hspace{3px} Location: Tehran, Iran  % row = 2, col = 1
+\faLocationArrow\hspace{3pt} Location: Tehran, Iran  % row = 2, col = 1
 &
-\faMobile\hspace{3px} Mobile: +989105093143   % row = 2, col = 1
+\faMobile\hspace{3pt} Mobile: +989105093143   % row = 2, col = 1
 &
-\faTelegram\hspace{3px} Telegram: \href{https://t.me/mohammadraziei}{\uline{@mohammadraziei}}
+\faTelegram\hspace{3pt} Telegram: \href{https://t.me/mohammadraziei}{\uline{@mohammadraziei}}
 \end{tabular}
 }
 \\
-\faLinkedin\hspace{3px} \uline{\url{https://www.linkedin.com/in/mohammadraziei/}} &
-\faEnvelope\hspace{3px} Email: \hspace{8px} \href{mailto:mohammadraziei1375@gmail.com}{\uline{mohammadraziei1375@gmail.com}} % row = 2, col = 2
+\faLinkedin\hspace{3pt} \uline{\url{https://www.linkedin.com/in/mohammadraziei/}} &
+\faEnvelope\hspace{3pt} Email: \hspace{8pt} \href{mailto:mohammadraziei1375@gmail.com}{\uline{mohammadraziei1375@gmail.com}} % row = 2, col = 2
 \\
-\faGithub\hspace{3px} \uline{\url{https://www.github.com/mohammadraziei/}} &
-\faGlobe\hspace{3px} Website: \uline{\url{https://mohammadraziei.github.io}}
+\faGithub\hspace{3pt} \uline{\url{https://www.github.com/mohammadraziei/}} &
+\faGlobe\hspace{3pt} Website: \uline{\url{https://mohammadraziei.github.io}}
 \\
 \end{tabular*}
 %--------------------------------------------
@@ -237,7 +237,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 %{M.SC in Information Technology Engineering}{19.0/20 $|$ Now}
 %{\footnotesize\textbf{Thesis Title:} Financial Behavior Analysis of Customers Switching from Modern Banking Services, Using Extracted Features from Transactional Signals}
 
-\resumeQuadHeading{\faGraduationCap\hspace{3px} Sharif University of Technology}{Tehran, Iran}
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} Sharif University of Technology}{Tehran, Iran}
 {\textbf{Ph.D.} in Communication Systems Engineering - Electrical Engineering Department}{2024 -- present}
 \begin{subitemize}
 	\item\textbf{Thesis About:}
@@ -248,7 +248,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \end{subitemize}
 
 % EE SHARIF
-\resumeQuadHeading{\faGraduationCap\hspace{3px} Sharif University of Technology}{Tehran, Iran}
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} Sharif University of Technology}{Tehran, Iran}
 {\textbf{M.Sc.} in Biomedical Engineering - Electrical Engineering Department}{2019 -- 2022}
 \begin{subitemize}
 	\item\textbf{Thesis Title:}
@@ -259,7 +259,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 	\end{subitemize}
 \vspace{.5em}
 % CE AUT
-\resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} Amirkabir University of Technology}{Tehran, Iran}
 {\textbf{B.Sc.} in Software Engineering - Computer Engineering Department}{2017 -- 2020}
 \begin{subitemize}
 	\item\textbf{Explanation:}
@@ -267,7 +267,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 	\end{subitemize}
 \vspace{.5em}
 % EE AUT
-\resumeQuadHeading{\faGraduationCap\hspace{3px} Amirkabir University of Technology}{Tehran, Iran}
+\resumeQuadHeading{\faGraduationCap\hspace{3pt} Amirkabir University of Technology}{Tehran, Iran}
 {\textbf{B.Sc}. in Communication Systems - Electrical Engineering Department}{2015 -- 2019}
 \begin{subitemize}
 	\item\textbf{Thesis Title:} \textit{Reinforcement Learning based Algorithm to Control Autonomous vehicles}.
@@ -344,7 +344,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \section{Selective Experiences}
 \resumeHeadingListStart{} % \justifying is applied here, but only affects items directly
 
-\resumeQuadHeading{\faBuilding\hspace{3px} Arman Company}{Feb 2024 -- present}
+\resumeQuadHeading{\faBuilding\hspace{3pt} Arman Company}{Feb 2024 -- present}
 {Senior Machine Learning Engineer}{Tehran, Iran}\\
 \justifying{ % Add \justifying here
     In my role as a Senior Machine Learning Engineer, I focus on developing and implementing advanced algorithms for audio and speech processing. My responsibilities include signal processing, designing models for tasks such as voice activity detection (VAD), speech denoising, language identification, and gender classification. Additionally, I contribute to the team's growth by mentoring and training interns in machine learning concepts and practical applications.
@@ -353,7 +353,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 \justifying{\textbf{Key skills:} Machine Learning, Signal Processing, Audio Processing, Speech Processing, VAD, Denoising, Language Identification, Gender Classification, Python, Mentoring} % Add \justifying here
 
 
-\resumeQuadHeading{\faBuilding\hspace{3px} Hamrah Avval - MCINEXT}{Feb 2022 -- Feb 2024} % Updated end date
+\resumeQuadHeading{\faBuilding\hspace{3pt} Hamrah Avval - MCINEXT}{Feb 2022 -- Feb 2024} % Updated end date
 {Data Scientist - Senior Python and C++ developer (Military Service)}{Tehran, Iran}\\
 { 
 I started my activity at Hamrah Avval in the search engine team as part of my military service. My main areas of focus included web page analysis, artificial intelligence, web graph analysis, converting Python code to C++, and binding it to Python. In this process, I became familiar with DevOps skills and learned many software engineering principles.
@@ -361,7 +361,7 @@ I started my activity at Hamrah Avval in the search engine team as part of my mi
 
 {\textbf{Key skills:} Qt, C++, Boost, Binding, Python, Web Analysis, AI, Graph Analysis, DevOps, Software Engineering, Code Optimization} % Add \justifying here
 
-\resumeQuadHeading{\faBuilding\hspace{3px} Sunyar Company}{May 2018 -- Jan 2021}
+\resumeQuadHeading{\faBuilding\hspace{3pt} Sunyar Company}{May 2018 -- Jan 2021}
 {Member to Lead of Signal Processing \& Software Engineering}{Tehran, Iran}\\
 I started at this company, located in Pardis Technology Park, as a member of the signal processing and software teams. Initially, I interviewed for the software team but ended up working in both departments. In the signal processing team, we analyzed communication signals and implemented various algorithms in MATLAB. As a MATLAB translator to C++, I implemented these algorithms in the signal processing software written in Qt.
 
@@ -371,7 +371,7 @@ Later, I was promoted to team lead of the programming group. The company's proje
 
 
 
-\resumeQuadHeading{\faBuilding\hspace{3px} Amirkabir Parsian Robotics}{Mar 2016 -- Des 2016}
+\resumeQuadHeading{\faBuilding\hspace{3pt} Amirkabir Parsian Robotics}{Mar 2016 -- Des 2016}
 {Member of AI Team}{Tehran, Iran}\\
 During the second semester of my bachelor's degree, I was invited to join the Robotics team of the \href{http://www.parsianrobotics.aut.ac.ir/}{\textit{Amirkabir Parsian Robotics}} Department due to my grades in the first semester.
 I started working in the AI team. The Parsian Robotics team was working on football robots and had various teams. The team's area of activity was implementing control algorithms for team control using C++ language and qt 4.8 framework.
@@ -467,26 +467,26 @@ I started working in the AI team. The Parsian Robotics team was working on footb
 %-----------TEACHING EXPERIENCE----------------
 \section{Teaching Experience}
 \resumeHeadingListStart{}
-\resumeQuadHeading{\faChalkboardTeacher\hspace{3px} Advanced Python Course}{May 2025}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Advanced Python Course}{May 2025}
 {Instructor, Hamrah Academy}{10 hours}
 \begin{subitemize}
     \item\textbf{Description:} This comprehensive course covers advanced Python concepts, from core libraries and OOP to functional programming, design patterns, and web services. Participants will gain the skills to develop robust applications and publish their own Python packages.
     \item[]\textbf{Website:} \href{https://mohammadraziei.github.io/advanced-python-course/}{\uline{Course Materials}}
 \end{subitemize}
 
-\resumeQuadHeading{\faChalkboardTeacher\hspace{3px} Advanced Python in Data Science Workshop}{Feb 2025}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Advanced Python in Data Science Workshop}{Feb 2025}
 {Instructor, Hamrah Academy}{3 hours}
 \begin{subitemize}
     \item\textbf{Description:} A workshop focusing on advanced Python techniques tailored for data science applications, including advanced Object-Oriented Programming (OOP), decorators, type annotations, and creating interactive UIs with Gradio.
 \end{subitemize}
 
-\resumeQuadHeading{\faChalkboardTeacher\hspace{3px} Advanced C++ \& Qt Programming Workshop}{July 2022}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Advanced C++ \& Qt Programming Workshop}{July 2022}
 {Instructor, Amirkabir University}{6 hours}
 \begin{subitemize}
     \item\textbf{Description:} This workshop focused on advanced C++ programming concepts, including in-depth coverage of the Standard Template Library (STL), Qt framework fundamentals, and other advanced C++ features to build robust applications.
 \end{subitemize}
 
-\resumeQuadHeading{\faChalkboardTeacher\hspace{3px} Fundamental Programming Course (C Language)}{Feb 2021}
+\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Fundamental Programming Course (C Language)}{Feb 2021}
 {Teaching Assistant (TA), Sharif University of Technology}{}
 \begin{subitemize}
     \item\textbf{Instructor:} Dr. B. Vosoghi Vahdat
@@ -502,23 +502,23 @@ I started working in the AI team. The Parsian Robotics team was working on footb
 \section{Publications}
 \resumeHeadingListStart{}
 % ---- Book ----
-\item \faBook\hspace{3px} \textbf{Integrating Simulink, MATLAB, and Python via the MATLAB Engine API}. (Completed, seeking publisher)\\
+\item \faBook\hspace{3pt} \textbf{Integrating Simulink, MATLAB, and Python via the MATLAB Engine API}. (Completed, seeking publisher)\\
 \textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{homepage})\\
 A practical guide to connecting Simulink, MATLAB, and Python using the MATLAB Engine API, featuring integration techniques and real-world examples for engineers and researchers.
 
-\item \faBook\hspace{3px} \textbf{The Foundations of Graph Signal Processing}. (In preparation)\\
+\item \faBook\hspace{3pt} \textbf{The Foundations of Graph Signal Processing}. (In preparation)\\
 \textit{Arash Amini} (\href{https://ee.sharif.edu/~amini/}{homepage}), \textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{homepage})\\
 \textbf{Homepage:} \href{https://mohammadraziei.github.io/GSPbook}{mohammadraziei.github.io/GSPbook}\\
 This book covers the fundamentals of graph signal processing and will serve as the main reference for the related course at Sharif University of Technology.
 
-\item \faBook\hspace{3px} \textbf{Reinforcement Learning Applications In the Controlling of Autonomous Vehicles}.\\
+\item \faBook\hspace{3pt} \textbf{Reinforcement Learning Applications In the Controlling of Autonomous Vehicles}.\\
 \textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{homepage})\\
 Farhamand University Press, 2021.\\
 This book discusses the application of reinforcement learning algorithms for controlling autonomous vehicles. It covers fundamental concepts, practical challenges, and case studies in this area.\\
 \textbf{Link:} \href{https://farbook.ir/BookView/61151/%d9%83%d8%a7%d8%b1%d8%a8%d8%b1%d8%af-%d9%8a%d8%a7%d8%af%da%af%d9%8a%d8%b1%d9%8a-%d8%aa%d9%82%d9%88%d9%8a%d8%aa%d9%8a-%d8%af%d8%b1-%d9%83%d9%86%d8%aa%d8%b1%d9%84-%d8%a7%d8%aa%d9%88%d9%85%d8%a8%d9%8a%d9%84-%d9%87%d8%a7%d9%8a-%d8%ae%d9%88%d8%af%d8%b1%d8%a7%d9%86}{\uline{Publisher Link}}
 
 % ---- Journal Paper ----
-\item \faFile\hspace{3px} \textbf{ESACT: An Index-Reordering Approach to Eliminate Bank Conflicts in Parallel Prefix-Sum Algorithms without Shared Memory Padding}. Submitted to \textit{Journal of Parallel and Distributed Computing}, 2024.\\
+\item \faFile\hspace{3pt} \textbf{ESACT: An Index-Reordering Approach to Eliminate Bank Conflicts in Parallel Prefix-Sum Algorithms without Shared Memory Padding}. Submitted to \textit{Journal of Parallel and Distributed Computing}, 2024.\\
 \textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{homepage}), 
 \textit{Reza Kazemi} (\href{https://sina.sharif.edu/~reza.kazemi/}{homepage}), 
 \textit{Matin Hashemi} (\href{https://sina.sharif.edu/~matin/}{homepage})\\
