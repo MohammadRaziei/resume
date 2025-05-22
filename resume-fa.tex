@@ -1,0 +1,323 @@
+%-------------------------
+% Resume LaTeX Template for Mohammad Raziei
+% Author : Mohammad Raziei
+% Based on various LaTeX resume templates
+% License : MIT
+
+% This resume template is designed to showcase professional experience and skills
+% in a clean, organized format. Feel free to modify it to suit your needs.
+%-------------------------
+
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{verbatim} % reimplements the "verbatim" and "verbatim*" environments
+
+\usepackage{titlesec} % provides an interface to sectioning commands i.e. custom elements
+
+\usepackage{color} % provides both foreground and background color management
+
+\usepackage{enumitem} % provides control over enumerate, itemize and description
+
+\usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
+
+\usepackage{multicol,array}
+\usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
+
+%\usepackage{latexsym} % provides mathematical symbols
+
+%\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+
+\usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
+
+\usepackage[hidelinks]{hyperref} % removes color and shadow of hyperlinks
+
+\usepackage[normalem]{ulem} % provides "\ul" (uline) command which will break at line breaks
+
+\usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
+
+\usepackage{ragged2e}
+
+%\usepackage{kpfonts}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+
+%-----------------------------------------
+
+%\input{glyphtounicode} % converts glyph names to unicode
+%\pdfgentounicode=1 % ensures pdfs generated are ats readable
+
+%-----------------------------------------
+\newlist{subitemize}{itemize}{3}
+\setlist[subitemize]{label=$\hookleftarrow$,before={\vspace{-4pt}\raggedright\justifying}, resume,leftmargin=*}
+
+%----------FONT OPTIONS-------------------
+%\usepackage[default]{sourcesanspro}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{textcomp} % uses the font source sans pro
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+
+%-----------------------------------------
+\usepackage{xepersian}
+\settextfont[Scale=1.05]{XB Niloofar} % یا هر فونت فارسی دیگری که نصب کرده‌اید
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+% \titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}
+%     {<before-code>}[<after-code>]
+
+% command is the sectioning command to be redefined
+% shape is the style of the font; scshape stands for small caps style
+% format is the format to be applied to whole title- label and text; absent here
+% label defines the label
+% sep is the horizontal separation between label and title body
+% before-code is the code to be executed before
+% after-code is the code to be executed after
+
+\titleformat{\section}
+{\scshape\large}{}
+{0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+\item{\small{#1}}
+}
+\newcommand{\resumeItemScore}[2]{\item[]\small#1\hfill#2}
+
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+\item\begin{tabular*}{0.96\textwidth}[t]{
+p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+}
+\textbf{#1} & #2 & #3
+\end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+\item\small{
+\begin{tabular*}{0.96\textwidth}[t]{
+l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+}
+\textbf{#1} & \textit{#2} & #3
+\end{tabular*}
+}
+}
+
+\newcommand{\resumePantaHeading}[5]{
+\item\small{
+\begin{tabular*}{0.96\textwidth}[t]{
+l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+}
+\textbf{#1} & #2 & #3 & #4 & #5
+\end{tabular*}
+}
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+\item
+\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+\item
+\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{\small#1} & {\small#2} \\
+\end{tabular*}
+}
+
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+\begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+\newcommand{\vcenteredinclude}[2][none]{\begingroup
+\setbox0=\hbox{\includegraphics[#1]{#2}}%
+\parbox{\wd0}{\box0}\endgroup}
+
+%__________________RESUME____________________
+% You can rearrange sections in any order you may prefer
+\begin{document}
+
+%-----------CONTACT DETAILS------------------
+% Make sure all the details are correct, you can add more links in the first row of second column if needed
+
+\begin{tabular*}{\textwidth}{r@{\extracolsep{\fill}}l}
+
+\textbf{\Huge محمد رضیئی فیجانی \vspace{2pt}} % Translated Name
+
+&
+\vcenteredinclude[width=2.5cm]{images/profile}
+\\
+\multicolumn{2}{r}{
+\begin{tabular}{l@{\quad|\quad}l@{\quad|\quad}l}
+\faLocationArrow\hspace{3pt} مکان: تهران، ایران  % row = 2, col = 1
+&
+\faMobile\hspace{3pt} موبایل: \lr{+989105093143}   % row = 2, col = 1
+&
+\faTelegram\hspace{3pt} تلگرام: \href{https://t.me/mohammadraziei}{\uline{\lr{@mohammadraziei}}}
+\end{tabular}
+}
+\\
+\faLinkedin\hspace{3pt} \uline{\url{https://www.linkedin.com/in/mohammadraziei/}} &
+\faEnvelope\hspace{3pt} ایمیل: \hspace{8pt} \href{mailto:mohammadraziei1375@gmail.com}{\uline{\lr{mohammadraziei1375@gmail.com}}} % row = 2, col = 2
+\\
+\faGithub\hspace{3pt} \uline{\url{https://www.github.com/mohammadraziei/}} &
+\faGlobe\hspace{3pt} وب‌سایت: \uline{\url{https://mohammadraziei.github.io}}
+\\
+\end{tabular*}
+%--------------------------------------------
+
+
+
+
+%-----------SUMMARY--------------------------
+% Keep this short, simple and straigth to point
+\justifying
+\section{درباره‌ من} % Translated Section Title
+\small{
+دانشمند و مهندس داده بسیار با انگیزه با پایه قوی در پردازش سیگنال (تصویر، پردازش زبان طبیعی (\lr{NLP})، صوت)، موازی‌سازی و محاسبات با عملکرد بالا (\lr{HPC}). دارای مدرک کارشناسی در سیستم‌های مخابراتی و مهندسی کامپیوتر (دانشگاه صنعتی امیرکبیر) و کارشناسی ارشد در مهندسی پزشکی (دانشگاه صنعتی شریف) با تجربه عملی در بازسازی تصویر \lr{MRI}. اکنون دانشجوی دکترا در رشته مخابرات در دانشگاه صنعتی شریف (پذیرفته شده از طریق برنامه نخبگان) هستم. تحقیقات دکترای من به بررسی کاربرد سطوح هوشمند قابل پیکربندی (\lr{RIS}) برای بهینه‌سازی محیط‌های بی‌سیم و توسعه الگوریتم‌های پیشرفته پردازش سیگنال برای مکان‌یابی با دقت بالا در سیستم‌های ارتباطی نسل آینده می‌پردازد. مسلط به توسعه بک‌اند (\lr{backend development}) و پیاده‌سازی الگوریتم‌های پیچیده، در محیط‌های همکاری تیمی رشد می‌کنم، مهارت‌های ارتباطی قوی دارم و به یادگیری مستمر برای پیشبرد نوآوری و حل چالش‌های پیچیده متعهد هستم.
+}
+%--------------------------------------------
+%-----------EDUCATION-------------------------
+% Mention your CGPA, if its good, in the first row of second column
+
+\section{تحصیلات} % Translated Section Title
+\resumeHeadingListStart{}
+
+\resumeQuadHeading{دانشگاه صنعتی شریف}{\faGraduationCap\hspace{3pt} تهران، ایران}
+{۱۴۰۳ -- اکنون}{\textbf{دکتری} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}
+\begin{subitemize}
+	\item\textbf{موضوع رساله:}
+		\textit{پردازش سیگنال سطوح هوشمند بازپیکربارپذیکر (\lr{RIS})}.
+	\item[]\textbf{توضیحات:}
+		پس از اتمام دوره خدمت سربازی، در سال ۱۴۰۳ بدون شرکت در کنکور و از طریق بنیاد ملی نخبگان وارد دوره دکتری شدم. تحقیقات من بر روی فناوری سطوح هوشمند تنظیم شونده (\lr{RIS}) متمرکز است.
+	\item[]\textbf{استاد راهنما:} دکتر م. فخارزاده (\href{https://sharif.edu/~fakharzadeh/}{\uline{وب‌سایت}})
+\end{subitemize}
+\vspace{.5em}
+
+\resumeQuadHeading{دانشگاه صنعتی شریف}{\faGraduationCap\hspace{3pt} تهران، ایران}
+{۱۳۹۸ -- ۱۴۰۱}{\textbf{کارشناسی ارشد} مهندسی پزشکی - دانشکده مهندسی برق}
+\begin{subitemize}
+	\item\textbf{عنوان پایان‌نامه:}
+		\textit{بازسازی تصاویر \lr{MRI} زیرنمونه‌برداری شده}.
+	\item[]\textbf{توضیحات:}
+		تسریع در تصویربرداری \lr{MRI} با استفاده از تکنیک‌های \textit{سنجش فشرده (\lr{compressed sensing})} و تصویربرداری موازی برای بازسازی زیرنمونه‌برداری شده. دستیابی به افزایش سرعت ۱۰ برابری با حفظ کیفیت بالای تصویر. دفاع موفق (اوایل سال ۱۴۰۱)؛ محرمانه طبقه‌بندی شده (تا ۵ سال) برای انتشار و ثبت اختراع.
+	\item[]\textbf{استاد راهنما:} دکتر ب. وثوقی وحدت (\href{https://ee.sharif.edu/~vahdat/}{\uline{وب‌سایت}})
+	\end{subitemize}
+\vspace{.5em}
+
+\resumeQuadHeading{دانشگاه صنعتی امیرکبیر}{\faGraduationCap\hspace{3pt} تهران، ایران}
+{۱۳۹۶ -- ۱۳۹۹}{\textbf{کارشناسی} مهندسی نرم‌افزار - دانشکده مهندسی کامپیوتر}
+\begin{subitemize}
+	\item[]\textbf{توضیحات:}
+		به دلیل شرایط ممتاز حاصل از معدل دوره کارشناسی و رتبه در کنکور سراسری (۴۶۱)، علاوه بر رشته مهندسی برق، از طریق بنیاد ملی نخبگان دانشگاه، در رشته کامپیوتر نیز به ادامه تحصیل پرداختم.
+	\end{subitemize}
+\vspace{.5em}
+
+\resumeQuadHeading{دانشگاه صنعتی امیرکبیر}{\faGraduationCap\hspace{3pt} تهران، ایران}
+{۱۳۹۴ -- ۱۳۹۸}{\textbf{کارشناسی} مهندسی سیستم‌های مخابراتی - دانشکده مهندسی برق}
+\begin{subitemize}
+	\item\textbf{عنوان پایان‌نامه:} \textit{الگوریتم مبتنی بر یادگیری تقویتی برای کنترل وسایل نقلیه خودران}.
+    \item[]\textbf{جزئیات پروژه:} توسعه \textit{\lr{Gym-Prescan}}، یک بسته پایتون که \lr{OpenAI Gym} را با پلتفرم شبیه‌سازی \lr{PreScan} مرتبط می‌کند و امکان انجام آزمایش‌های یادگیری تقویتی برای کنترل وسایل نقلیه خودران را فراهم می‌آورد. این ابزار هسته اصلی کار پایان‌نامه را تشکیل داد.
+	\item[]\textbf{جایزه:}
+		این پایان‌نامه در پایان سال ۱۳۹۸ رتبه اول صنعت را کسب کرد. این رویداد با ارزیابی هیئتی از اساتید برق و داوران صنعت برگزار شد.
+	\item[]\textbf{اساتید راهنما:} دکتر و. پوراحمدی (\href{https://aut.ac.ir/cv/2519/VAHID%20POURAHMADI}{\uline{وب‌سایت}})، دکتر ح. امین‌داور (\href{https://aut.ac.ir/cv/2200/Hamidreza-Amindavar}{\uline{وب‌سایت}})،
+\end{subitemize}
+\resumeHeadingListEnd{}
+%---------------------------------------------
+\section{برخی نمرات} % Translated Section Title
+%\resumeHeadingListStart{}
+%
+\resumeHeadingListStart{}
+\resumeQuadHeading{کارشناسی ارشد}{}{}{}\\\vspace{-1.5em} % Translated "Master"
+
+\begin{multicols}{2}
+\resumeItemListStart{}
+\resumeItemScore{پردازش سیگنال گراف (\lr{GSP})}{۲۰}
+\resumeItemScore{برنامه‌نویسی موازی}{۲۰}
+\resumeItemScore{یادگیری عمیق}{۲۰}
+\resumeItemScore{تصویربرداری پزشکی}{۱۸.۵}
+\resumeItemScore{سنجش فشرده (\lr{CS})}{۱۸.۳}
+\resumeItemScore{تحلیل و پردازش تصاویر پزشکی (\lr{MIAP})}{۱۸}
+\resumeItemScore{جداسازی کور منابع (\lr{BSS})}{۱۷.۶}
+\resumeItemScore{فیلتر تطبیقی}{۱۷}
+\resumeItemListEnd{}
+\end{multicols}
+
+
+\resumeQuadHeading{کارشناسی}{}{}{}\\\vspace{-1.5em} % Translated "Bachelor"
+\begin{multicols}{2}
+\resumeItemListStart{}
+\resumeItemScore{پردازش سیگنال دیجیتال (\lr{DSP})}{۲۰}
+\resumeItemScore{برنامه‌نویسی کامپیوتر}{۲۰}
+\resumeItemScore{مدارهای منطقی}{۲۰}
+\resumeItemScore{الکترومغناطیس}{۲۰}
+\resumeItemScore{برنامه‌نویسی پیشرفته (\lr{AP})}{۱۹.۱۹}
+\resumeItemScore{سیگنال‌ها و سیستم‌ها}{۱۸.۴۲}
+\resumeItemScore{مبانی ماتریس و جبر خطی}{۱۸.۸}
+\resumeItemScore{معماری کامپیوتر و ریزپردازنده‌ها}{۲۰}
+\resumeItemScore{شبکه‌های کامپیوتری}{۱۷.۲}
+\resumeItemScore{سیستم‌های مخابراتی}{۱۷.۵}
+\resumeItemListEnd{}
+\end{multicols}
+
+\resumeHeadingListEnd{}
+%--------------------------------------------
+
+% The "Technical Skills" section and subsequent sections are intentionally omitted as per your request.
+% \section{مهارت‌های فنی} ...
+
+\end{document}
