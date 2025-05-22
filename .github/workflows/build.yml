@@ -28,7 +28,7 @@ jobs:
       - name: Download Fonts
         uses: robinraju/release-downloader@v1.8
         with:
-          tag: "Latex-lite"
+          tag: "fa-Vazirmatn"
           # Choose what fonts you need from https://github.com/MohammadRaziei/fonts/releases
           repository: "mohammadraziei/fonts"
           fileName: "fonts.zip"
