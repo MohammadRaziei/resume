@@ -20,7 +20,7 @@
 \usepackage{enumitem} % provides control over enumerate, itemize and description
 
 \usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
-
+\usepackage{adjustbox,changepage}
 \usepackage{multicol,array}
 \usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
 
@@ -158,7 +158,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 % resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
 \newcommand{\resumeQuadHeading}[4]{
 \item
-\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
 \textbf{#1} & #2 \\
 \textit{\small#3} & \textit{\small #4} \\
 \end{tabular*}
@@ -167,7 +167,7 @@ l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
 % resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
 \newcommand{\resumeQuadHeadingChild}[2]{
 \item
-\begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
 \textbf{\small#1} & {\small#2} \\
 \end{tabular*}
 }
@@ -246,43 +246,54 @@ Beyond my research, I am a proficient backend developer with a deep interest in 
 
 \resumeQuadHeading{\faGraduationCap\hspace{3pt} Sharif University of Technology}{Tehran, Iran}
 {\textbf{Ph.D.} in Communication Systems Engineering - Electrical Engineering Department}{2024 -- present}
-\begin{subitemize}
-	\item\textbf{Thesis About:}
+\vspace{-.5em}\begin{justify}\small
+%	\item
+	\noindent\textbf{Thesis About:}
 		\textit{Reconfigurable Intelligent Surface (RIS) Signal Processing includes Beamforming, DoA Estimation, and Localization in complex scenarios involving multiple network elements.}
-	\item[]\textbf{Explanation:}
+%	\item[]
+	
+	\noindent\textbf{Explanation:}
 		After completing my military service, I entered the doctoral program in 2024 without taking the entrance exam through the Elite Talents Foundation. My research focuses on Reconfigurable Intelligence Surface (RIS) technology.
-	\item[]\textbf{Supervisor:} Dr. M. Fakharzadeh (\href{https://sharif.edu/~fakharzadeh/}{\uline{Website}}) 
-\end{subitemize}
+%	\item[]
+
+	\noindent\textbf{Supervisor:} Dr. M. Fakharzadeh (\href{https://sharif.edu/~fakharzadeh/}{\uline{Website}}) 
+\end{justify}
+\vspace{.5em}
 
 % EE SHARIF
 \resumeQuadHeading{\faGraduationCap\hspace{3pt} Sharif University of Technology}{Tehran, Iran}
 {\textbf{M.Sc.} in Biomedical Engineering - Electrical Engineering Department}{2019 -- 2022}
-\begin{subitemize}
-	\item\textbf{Thesis Title:}
+\vspace{-.5em}\begin{justify}\small
+	\noindent\textbf{Thesis About:}
 		\textit{Undersampled MRI Image Reconstruction}.
-	\item[]\textbf{Explanation:}
+		
+	\noindent\textbf{Explanation:}
 		Accelerated MRI acquisition using \textit{compressed sensing} and parallel imaging techniques for undersampled reconstruction. Achieved 10x speedup while maintaining high image quality. Successfully defended (early 2022); designated confidential (up to 5 years) for publication and patent registration.
-	\item[]\textbf{Supervisor:} Dr. B. Vosoghi Vahdat (\href{https://ee.sharif.edu/~vahdat/}{\uline{Website}})
-	\end{subitemize}
+		
+	\noindent\textbf{Supervisor:} Dr. B. Vosoghi Vahdat (\href{https://ee.sharif.edu/~vahdat/}{\uline{Website}})
+	\end{justify}
 \vspace{.5em}
 % CE AUT
 \resumeQuadHeading{\faGraduationCap\hspace{3pt} Amirkabir University of Technology}{Tehran, Iran}
 {\textbf{B.Sc.} in Software Engineering - Computer Engineering Department}{2017 -- 2020}
-\begin{subitemize}
-	\item\textbf{Explanation:}
+\vspace{-.5em}\begin{justify}\small
+	\noindent\textbf{Explanation:}
 		Due to having excellent conditions resulting from my undergraduate GPA and ranking in the national university entrance exam (461), I pursued further studies in the field of computer science in addition to electrical engineering, through the University's Elite Talents Foundation.
-	\end{subitemize}
+\end{justify}
 \vspace{.5em}
 % EE AUT
 \resumeQuadHeading{\faGraduationCap\hspace{3pt} Amirkabir University of Technology}{Tehran, Iran}
 {\textbf{B.Sc}. in Communication Systems - Electrical Engineering Department}{2015 -- 2019}
-\begin{subitemize}
-	\item\textbf{Thesis Title:} \textit{Reinforcement Learning based Algorithm to Control Autonomous vehicles}.
-    \item[]\textbf{Project Details:} Developed \textit{Gym-Prescan}, a Python package bridging OpenAI Gym with the PreScan simulation platform, enabling reinforcement learning experiments for autonomous vehicle control. This tool formed the core of the thesis work.
-	\item[]\textbf{Award:}
+\vspace{-.5em}\begin{justify}\small
+	\noindent\textbf{Thesis Title:} \textit{Reinforcement Learning based Algorithm to Control Autonomous vehicles}.
+    
+    \noindent\textbf{Project Details:} Developed \textit{Gym-Prescan}, a Python package bridging OpenAI Gym with the PreScan simulation platform, enabling reinforcement learning experiments for autonomous vehicle control. This tool formed the core of the thesis work.
+	
+	\noindent\textbf{Award:}
 		This dissertation achieved the top rank in the industry at the end of 2019. This event was held with the evaluation of a panel of electrical professors and industry judges.
-	\item[]\textbf{Supervisors:} Dr. V. Pourahmadi (\href{https://aut.ac.ir/cv/2519/VAHID%20POURAHMADI}{\uline{Website}}), Dr. H. Amindavar (\href{https://aut.ac.ir/cv/2200/Hamidreza-Amindavar}{\uline{Website}}),
-\end{subitemize}
+		
+	\noindent\textbf{Supervisors:} Dr. V. Pourahmadi (\href{https://aut.ac.ir/cv/2519/}{\uline{Website}}), Dr. H. Amindavar (\href{https://aut.ac.ir/cv/2200/}{\uline{Website}}),
+\end{justify}
 \resumeHeadingListEnd{}
 %---------------------------------------------
 \section{Some Scores}
@@ -409,58 +420,125 @@ I started working in the AI team. The Parsian Robotics team was working on footb
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Workshop at DevOps Bootcamp}{January 2026}
 {Instructor, Hamrah Academy}{3 hours}
-\begin{subitemize}
-	\item\textbf{Description:}
+%\begin{subitemize}
+%	\item
+{\small
+	\textbf{Description:}
 	The automation of software development processes has given rise to the concept of DevOps, with Git undoubtedly serving as one of its most essential foundations. In this workshop, we explored the concept of GitOps and leveraged GitHub Actions to streamline Build, Test, and Deployment processes.
-	
-	\item[]\textbf{Website:} \href{https://hamrah.academy/course/3869/devops-bootcamps}{\uline{Bootcamp Website}}
-\end{subitemize}
+%	\item[]
+
+	\textbf{Website:} \href{https://hamrah.academy/course/3869/devops-bootcamps}{\uline{Bootcamp Website}}
+}
+%\end{subitemize}
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Git \& Github Course}{December 2025}
 {Instructor, Hamrah Academy}{8 hours}
-\begin{subitemize}
-	\item\textbf{Description:} This course covers Git and GitHub essentials, progressing from fundamental concepts to advanced techniques. I am truly honored to have taught this course, as I believe version control is the most vital skill for any developer. It is also a privilege to have this session serve as the starting point for three primary learning paths at Hamrah Academy.
-	\item[]\textbf{Website:} \href{https://hamrah.academy/course/3867/git-github}{\uline{Course Website}}
-\end{subitemize}
+%\begin{subitemize}
+%	\item
+{\small
+	\textbf{Description:} This course covers Git and GitHub essentials, progressing from fundamental concepts to advanced techniques. I am truly honored to have taught this course, as I believe version control is the most vital skill for any developer. It is also a privilege to have this session serve as the starting point for three primary learning paths at Hamrah Academy.
+%	\item[]
+
+	\textbf{Website:} \href{https://hamrah.academy/course/3867/git-github}{\uline{Course Website}}
+}
+%\end{subitemize}
 
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Workshop at Generative AI (GenAI) Bootcamp}{September 2025}
 {Instructor, Hamrah Academy}{7 hours}
-\begin{subitemize}
-	\item\textbf{Description:} 
+%\begin{subitemize}
+%	\item
+{\small
+	\textbf{Description:} 
 	Generative AI has gained significant momentum with the rise of Large Language Models (LLMs), and Python has undoubtedly played a pivotal role in this evolution. In this workshop, I aimed to present advanced Python concepts centered on AI and Natural Language Processing (NLP) through an interactive learning experience with the students.
-	\item[]\textbf{Website:} \href{https://hamrah.academy/bootcamps/3719}{\uline{Bootcamp Website}}
-\end{subitemize}
+%	\item[]
+
+	\textbf{Website:} \href{https://hamrah.academy/bootcamps/3719}{\uline{Bootcamp Website}}
+}
+%\end{subitemize}
 
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Advanced Python Course}{May 2025}
 {Instructor, Hamrah Academy}{10 hours}
-\begin{subitemize}
-    \item\textbf{Description:} This comprehensive course covers advanced Python concepts, from core libraries and OOP to functional programming, design patterns, and web services. Participants will gain the skills to develop robust applications and publish their own Python packages.
-    \item[]\textbf{Website:} \href{https://mohammadraziei.github.io/advanced-python-course/}{\uline{Course Materials}}
-\end{subitemize}
+%\begin{subitemize}
+%    \item
+{\small
+    \textbf{Description:} This comprehensive course covers advanced Python concepts, from core libraries and OOP to functional programming, design patterns, and web services. Participants will gain the skills to develop robust applications and publish their own Python packages.
+%    \item[]
+
+    \textbf{Website:} \href{https://mohammadraziei.github.io/advanced-python-course/}{\uline{Course Materials}}
+}
+%\end{subitemize}
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Workshop at Data Science and Data Analysis Bootcamp}{Feb 2025}
 {Instructor, Hamrah Academy}{3 hours}
-\begin{subitemize}
-    \item\textbf{Description:} A workshop focusing on advanced Python techniques tailored for data science applications, including advanced Object-Oriented Programming (OOP), decorators, type annotations, and creating interactive UIs with Gradio.
-\end{subitemize}
+%\begin{subitemize}
+%    \item
+{\small
+    \textbf{Description:} A workshop focusing on advanced Python techniques tailored for data science applications, including advanced Object-Oriented Programming (OOP), decorators, type annotations, and creating interactive UIs with Gradio.
+}
+%\end{subitemize}
 
 \resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Advanced C++ \& Qt Programming Workshop}{July 2022}
 {Instructor, Amirkabir University}{6 hours}
-\begin{subitemize}
-    \item\textbf{Description:} This workshop focused on advanced C++ programming concepts, including in-depth coverage of the Standard Template Library (STL), Qt framework fundamentals, and other advanced C++ features to build robust applications.
-\end{subitemize}
+%\begin{subitemize}
+%    \item
+{\small
+    \textbf{Description:} This workshop focused on advanced C++ programming concepts, including in-depth coverage of the Standard Template Library (STL), Qt framework fundamentals, and other advanced C++ features to build robust applications.
+}
+%\end{subitemize}
 
-\resumeQuadHeading{\faChalkboardTeacher\hspace{3pt} Fundamental Programming Course (C Language)}{Feb 2021}
-{Teaching Assistant (TA), Sharif University of Technology}{}
-\begin{subitemize}
-    \item\textbf{Instructor:} Dr. B. Vosoghi Vahdat
-    \item[]\textbf{Description:} Assisted in teaching introductory programming concepts using the C language, covering fundamental programming principles and problem-solving techniques.
-\end{subitemize}
+
 \resumeHeadingListEnd{}
 %--------------------------------------------
 
+
+\newpage
+\section{Teaching Assistant (TA)}
+\vspace{-1em}
+\begin{multicols}{2}
+	\resumeHeadingListStart{}
+		\item \begin{minipage}{\linewidth}
+			{\faChalkboard\hspace{3pt}\bfseries Wireless and Mobile Communications Course}
+			\newline\small
+			{\textit{Sharif University of Technology} \hfill Feb 2026}
+			\newline
+			\textbf{Instructors:} \hfill Dr. M. Mojahedian \& Dr. R. Amiri 
+			\newline
+			\textbf{Description:} This course covers wireless communication fundamentals, including channel modeling and fading. Topics include cellular networks, multiple access schemes, and MIMO systems, focusing on mobile standards and performance analysis.
+		\end{minipage}
+		
+		\item \begin{minipage}{\linewidth}
+			{\faChalkboard\hspace{3pt}\bfseries Graph Signal Processing Course}
+			\newline\small
+			{\textit{Sharif University of Technology} \hfill Sep 2025}
+			\newline
+			\textbf{Instructor:} \hfill Dr. A. Amini 
+			\newline
+			\textbf{Description:} This course covers graph signal processing fundamentals, including spectral graph theory and transformations on irregular domains. Topics include graph filters, sampling, and recovery.
+		\end{minipage}
+	
+		\item \begin{minipage}{\linewidth}
+			{\faChalkboard\hspace{3pt}\bfseries Object Oriented Programming Course}
+			\newline\small
+			{\textit{Sharif University of Technology} \hfill Sep 2021}
+			\newline
+			\textbf{Instructor:} \hfill Dr. B. Vosoghi Vahdat
+			\newline
+			\textbf{Description:} This course covers object-oriented programming principles, including classes, inheritance, and polymorphism. Topics focus on encapsulation, abstraction, and design patterns, with practical implementation in C++/Java.
+		\end{minipage}
+		
+		\item \begin{minipage}{\linewidth}
+			{\faChalkboard\hspace{3pt}\bfseries Fundamental Programming Course}
+			\newline\small
+			{\textit{Sharif University of Technology} \hfill Feb 2021}
+			\newline
+			\textbf{Instructor:} \hfill Dr. B. Vosoghi Vahdat
+			\newline
+			\textbf{Description:} Assisted in teaching introductory programming concepts using the C language, covering fundamental programming principles and problem-solving techniques.
+		\end{minipage}
+	\resumeHeadingListEnd{}
+\end{multicols}
 
 
 %-----------PUBLICATIONS----------------
@@ -469,27 +547,127 @@ I started working in the AI team. The Parsian Robotics team was working on footb
 \resumeHeadingListStart{}
 % ---- Book ----
 \item \faBook\hspace{3pt} \textbf{Integrating Simulink, MATLAB, and Python via the MATLAB Engine API}. (Completed, seeking publisher)\\
-\textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{\uline{homepage}})\\
+\href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}\\
 A practical guide to connecting Simulink, MATLAB, and Python using the MATLAB Engine API, featuring integration techniques and real-world examples for engineers and researchers.
 
 \item \faBook\hspace{3pt} \textbf{The Foundations of Graph Signal Processing}. (In preparation)\\
-\textit{Arash Amini} (\href{https://ee.sharif.edu/~amini/}{\uline{homepage}}), \textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{\uline{homepage}})\\
+\href{https://ee.sharif.edu/~amini/}{\uline{Arash Amini}}, \href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}\\
 \textbf{Homepage:} \href{https://mohammadraziei.github.io/GSPbook}{mohammadraziei.github.io/GSPbook}\\
 This book covers the foundational concepts of Graph Signal Processing (GSP) and Graph Neural Networks (GNNs), serving as the primary textbook for the corresponding course at Sharif University of Technology. It also provides comprehensive instruction on the libgsp library, which is a high-performance and industry-scale tool developed by the author. This library is available in both C++ and Python to support large-scale industrial applications.
 
 \item \faBook\hspace{3pt} \textbf{Reinforcement Learning Applications In the Controlling of Autonomous Vehicles}.\\
-\textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{\uline{homepage}})\\
+\href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}\\
 Farhamand University Press, 2021.\\
 This book discusses the application of reinforcement learning algorithms for controlling autonomous vehicles. It covers fundamental concepts, practical challenges, and case studies in this area.\\
 \textbf{Link:} \href{https://farbook.ir/BookView/61151/%d9%83%d8%a7%d8%b1%d8%a8%d8%b1%d8%af-%d9%8a%d8%a7%d8%af%da%af%d9%8a%d8%b1%d9%8a-%d8%aa%d9%82%d9%88%d9%8a%d8%aa%d9%8a-%d8%af%d8%b1-%d9%83%d9%86%d8%aa%d8%b1%d9%84-%d8%a7%d8%aa%d9%88%d9%85%d8%a8%d9%8a%d9%84-%d9%87%d8%a7%d9%8a-%d8%ae%d9%88%d8%af%d8%b1%d8%a7%d9%86}{\uline{Publisher Link}}
 
 % ---- Journal Paper ----
 \item \faFile\hspace{3pt} \textbf{ESACT: An Index-Reordering Approach to Eliminate Bank Conflicts in Parallel Prefix-Sum Algorithms without Shared Memory Padding}. Submitted to \textit{Journal of Parallel and Distributed Computing}, 2024.\\
-\textit{Mohammad Raziei} (\href{https://mohammadraziei.github.io}{\uline{homepage}}), 
-\textit{Reza Kazemi} (\href{https://sina.sharif.edu/~reza.kazemi/}{\uline{homepage}}), 
-\textit{Matin Hashemi} (\href{https://sina.sharif.edu/~matin/}{\uline{homepage}})\\
+\href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}, 
+\href{https://sina.sharif.edu/~reza.kazemi/}{\uline{Reza Kazemi}}, 
+\href{https://sina.sharif.edu/~matin/}{\uline{Matin Hashemi}}\\
 \textbf{Abstract:} Bank conflicts significantly impact the performance of parallel algorithms on GPU architectures by serializing memory accesses. This issue particularly affects parallel prefix sum (scan) computations... We introduce the Efficient Sequentially-Addressed Calculating Tree (ESACT), a novel parallel scan algorithm that eliminates bank conflicts without relying on memory padding. ESACT reconfigures the Blelloch algorithm into a sequential addressing scheme using optimized reordered indices...
 \resumeHeadingListEnd{}
+
+
+
+
+%---------------------------------------------
+
+
+\section{Some Projects}
+
+{\faProjectDiagram\hspace{3pt}\bfseries Programming Projects:}
+Passionate about cross-language package development, I enjoy building libraries that combine the advantages of different languages to create robust and efficient solutions. A selection of my programming projects is presented below.
+
+
+
+\begin{multicols}{2}
+	\resumeHeadingListStart{}
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{libGSP} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/libgsp}
+		
+		\vspace{4pt} \small
+      Developed a comprehensive C++ library for Graph Signal Processing based on \href{https://eigen.tuxfamily.org/}{\uline{Eigen}}, featuring Python bindings. The project focuses on three core pillars: graph architecture, graph learning, and signal visualization powered by JavaScript and \href{https://threejs.org/}{\uline{Three.js}}. It supports both sparse and dense graphs, making it highly efficient for large-scale applications and serving as a high-performance alternative to \href{https://epfl-lts2.github.io/gspbox-html/}{\uline{GSPBox}} and \href{https://pygsp.readthedocs.io/}{\uline{PyGSP}}. Notably, this package is officially utilized and taught in my authored book.
+		
+	\end{minipage}
+	
+		
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{Pygixml} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/pygixml}
+		
+		\vspace{4pt} \small
+             Developed a high-performance Python binding for the \href{https://pugixml.org/}{\uline{pugixml}} library using Cython. The API is designed to be fully Pythonic and user-friendly, modeled after the popular \href{https://github.com/rushter/selectolax}{\uline{selectolax}} package, to which I have also contributed. It achieves speeds \textit{16 to 32 times faster} than Python's built-in \textit{ElementTree} and \textit{5 times faster} than the C++-based \textit{lxml}.
+	\end{minipage}
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{yyaml} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/yyaml}
+		
+		\vspace{4pt} \small
+           A high-performance polyglot project originally developed in C to optimize YAML processing speeds, featuring bindings for C++, Python, and Go. This initiative is part of my broader contribution to high-speed parsing, which includes my contributions to \href{https://github.com/ibireme/yyjson}{\uline{yyjson}} as well as the development of my other libraries, \href{https://github.com/mohammadraziei/serin}{\uline{serin}} and \href{https://github.com/mohammadraziei/ctoon}{\uline{ctoon}}.
+	\end{minipage}
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{novasvg} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/novasvg}
+		
+		\vspace{4pt} \small
+        My hybrid C++/Python package, designed as a lightweight, single-header library. It serves as a prime example of seamless integration between C++ and Python. The engine converts SVG to PNG while supporting custom CSS. Inspired by the \href{https://github.com/sammycage/lunasvg}{\uline{lunasvg}} API, it targets C++ header-only projects. Prior to this, \href{https://github.com/mattiasgustavsson/libs}{\uline{nanosvg}} was the only available option, but it lacked comprehensive SVG coverage.		
+	\end{minipage}
+	
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{Phasma} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/phasma}
+		
+		\vspace{4pt} \small
+      Developed an OS-independent Python package that utilizes a pre-bundled PhantomJS headless browser engine. Featuring a Playwright-like API, it enables JavaScript execution with full DOM manipulation capabilities. This library serves as the core for our popular \href{https://github.com/mohammadraziei/mmdc}{\uline{mmdc}} package, providing a Python-native alternative to \href{https://github.com/mermaid-js/mermaid-cli}{\uline{mermaid-cli}}.
+	\end{minipage}
+	
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{liburlparser} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/liburlparser}
+		
+		\vspace{4pt} \small
+		Developed my first hybrid C++ library with Python bindings designed for high-performance URL parsing. The package decomposes URLs into components such as suffix, domain, and subdomain. It is currently the fastest package available for this task and fully supports the Public Suffix List (PSL).
+	\end{minipage}
+		
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{pip-size} 
+		\hfill \textit{Owner} \\ 
+		\url{https://github.com/mohammadraziei/pip-size}
+		
+		\vspace{4pt} \small
+     	 Developed a utility tool to analyze and report the disk footprint of Python packages, including their dependencies, without requiring installation. Leveraging an intelligent caching system, it automatically detects the OS and Python version to measure the correct wheel sizes recursively. This tool is ideal for benchmarking and comparing the lightweight nature of similar packages.
+	\end{minipage}
+	
+	\item \begin{minipage}{\linewidth}
+		\faCode\hspace{3pt}\textbf{MR Musics} 
+		\hfill \textit{Owner} \\ 
+		\url{https://mohammadraziei.github.io/musics}
+		
+		\vspace{4pt} \small
+        A personal recreational project deployed on \href{https://pages.github.com/}{\uline{GitHub Pages}}, serving as a platform to stream my favorite music. Developed using \href{https://nextjs.org/}{\uline{Next.js}}, it integrates into my \href{https://mohammadraziei.github.io/}{\uline{main website}} which utilizes a \textit{Micro Frontend} architecture. This project allowed me to practice both front-end and DevOps skills.
+
+		
+%		این یه پروژه تفریحی است، جایی برای گوش دادن آهنگ های مورد علاقه ام، که بر روی github.io منتشر شده است و با استفاده از nextjs توسعه یافته است مانند اکثر صفحات دیگرم در github. در این پروژه مهارت های front-end و devops خود را سعی کردم استفاده کنم. صفحه اصلی از طریق معماری micro front end توسعه یافته است.
+	\end{minipage}
+	
+	
+	
+	\resumeHeadingListEnd{}
+\end{multicols}
 
 
 
