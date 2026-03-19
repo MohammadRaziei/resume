@@ -357,7 +357,7 @@ Beyond my research, I am a proficient backend developer with a deep interest in 
 \resumeSectionType{Signal Processing}{:}{Classic Communication Signal Processing, AI-based Signal Processing, Automatic Modulation Recognition (AMR), Graph Signal Processing, Array Signal Processing, GPS-less Navigation Systems}
 \resumeSectionType{Communication Systems}{:}{5G, 6G, Reconfigurable Intelligent Surface (RIS), Localization, Wireless Communication}
 \resumeSectionType{Languages}{:}{Python, C++, Cuda, Matlab, JavaScript}
-\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding, Clean Architecture}
+\resumeSectionType{Programming}{:}{Design Patterns, Test-driven Development, Microservices architecture, Package Developing, CPython Binding, Clean Architecture, Writing maintainable, scalable, and well-documented code}
 \resumeSectionType{DevOps}{:}{git, CI/CD, gitlab-ci, github actions}
 \resumeHeadingListEnd{}
 %--------------------------------------------
@@ -577,7 +577,7 @@ This book discusses the application of reinforcement learning algorithms for con
 
 \section{Some Projects}
 
-{\faProjectDiagram\hspace{3pt}\bfseries Programming Projects:}
+\noindent{\faProjectDiagram\hspace{3pt}\bfseries Programming Projects:}
 Passionate about cross-language package development, I enjoy building libraries that combine the advantages of different languages to create robust and efficient solutions. A selection of my programming projects is presented below.
 
 
@@ -615,7 +615,7 @@ Passionate about cross-language package development, I enjoy building libraries 
 	\end{minipage}
 	
 	\item \begin{minipage}{\linewidth}
-		\faCode\hspace{3pt}\textbf{novasvg} 
+		\faCode\hspace{3pt}\textbf{NovaSVG} 
 		\hfill \textit{Owner} \\ 
 		\url{https://github.com/mohammadraziei/novasvg}
 		
@@ -649,7 +649,8 @@ Passionate about cross-language package development, I enjoy building libraries 
 		\url{https://github.com/mohammadraziei/pip-size}
 		
 		\vspace{4pt} \small
-     	 Developed a utility tool to analyze and report the disk footprint of Python packages, including their dependencies, without requiring installation. Leveraging an intelligent caching system, it automatically detects the OS and Python version to measure the correct wheel sizes recursively. This tool is ideal for benchmarking and comparing the lightweight nature of similar packages.
+        Developed a utility tool to analyze and report the \textit{package size} of Python distributions (e.g., .whl, .tar.gz), including dependencies, without requiring installation. Leveraging an intelligent caching system, it automatically detects the OS and Python version to measure the correct wheel sizes recursively. This tool is ideal for benchmarking and comparing the lightweight nature of similar packages.
+
 	\end{minipage}
 	
 	\item \begin{minipage}{\linewidth}
@@ -658,17 +659,56 @@ Passionate about cross-language package development, I enjoy building libraries 
 		\url{https://mohammadraziei.github.io/musics}
 		
 		\vspace{4pt} \small
-        A personal recreational project deployed on \href{https://pages.github.com/}{\uline{GitHub Pages}}, serving as a platform to stream my favorite music. Developed using \href{https://nextjs.org/}{\uline{Next.js}}, it integrates into my \href{https://mohammadraziei.github.io/}{\uline{main website}} which utilizes a \textit{Micro Frontend} architecture. This project allowed me to practice both front-end and DevOps skills.
+        A personal recreational project deployed on \href{https://mohammadraziei.github.io/}{\uline{GitHub Pages}}, serving as a platform to stream my favorite music. Developed using \href{https://nextjs.org/}{\uline{Next.js}}, it integrates into my \href{https://mohammadraziei.github.io/}{\uline{main website}} which utilizes a \textit{Micro Frontend} architecture. This project allowed me to practice both front-end and DevOps skills.
 
 		
 %		این یه پروژه تفریحی است، جایی برای گوش دادن آهنگ های مورد علاقه ام، که بر روی github.io منتشر شده است و با استفاده از nextjs توسعه یافته است مانند اکثر صفحات دیگرم در github. در این پروژه مهارت های front-end و devops خود را سعی کردم استفاده کنم. صفحه اصلی از طریق معماری micro front end توسعه یافته است.
 	\end{minipage}
-	
-	
+		
 	
 	\resumeHeadingListEnd{}
 \end{multicols}
 
+
+%==================================================
+
+\vspace{1.5em}
+\noindent{\faProjectDiagram\hspace{3pt}\bfseries Signal Processing and Telecommunications Projects:}
+Given my background in Telecommunications Engineering, I have undertaken numerous projects in this field, with a strong focus on \textit{Signal Processing} methods and \textit{Artificial Intelligence} techniques, which are outlined below.
+
+\begin{multicols}{2}
+	\resumeHeadingListStart{}
+
+	
+\item \begin{minipage}{\linewidth}
+	\faBroadcastTower\hspace{3pt}\textbf{Automatic Modulation Recognition (AMR)} 
+	
+	\vspace{4pt} \small
+    During my tenure at \textit{Sunyar Co.}, I worked extensively on this project. AMR is a critical signal processing technique used to identify the modulation type of a received signal without prior knowledge. We implemented this system utilizing \textit{Artificial Intelligence} and \textit{Neural Networks} to achieve high accuracy in complex environments. It serves as a key component in cognitive radio and spectrum monitoring systems, enabling intelligent decision-making for interference detection and dynamic spectrum access.
+
+\end{minipage}
+
+
+\item \begin{minipage}{\linewidth}
+	\faBroadcastTower\hspace{3pt}\textbf{Visual Navigation Systems (VNS)}
+	
+	\vspace{4pt} \small
+        Developed a navigation system integrating \textit{SLAM}, map matching, and \textit{AI} techniques (such as \textit{XFeat}) to process satellite imagery for precise \textit{UAV localization in GPS-denied} environments.
+         The matching utilized \textit{Nearest Neighbor} search with \textit{RANSAC} for robust geometric verification.
+         The system supports model deployment via \textit{ONNX} and \textit{RKNN}. I also developed and open-sourced \href{https://github.com/mohammadraziei/libmbtiles}{\uline{libmbtiles}} as a supporting utility for map management, downloading, and \textit{rendering}.
+\end{minipage}
+
+
+\item \begin{minipage}{\linewidth}
+	\faBroadcastTower\hspace{3pt}\textbf{Automatic Speech Recognition (ASR)}
+	
+	\vspace{4pt} \small
+	During my tenure at \textit{Arman Co.}, I developed a comprehensive signal processing pipeline including \textit{Voice Activity Detection} (VAD), RMS-based voice normalization, and generative denoising. The system utilized fine-tuned models from \textit{Meta (Facebook)}, \textit{HuBERT}, and \textit{SpeechBrain} for transcription. I also deployed scalable services using \textit{gRPC} and \textit{Qdrant Vector DB}. Additionally, I initiated and open-sourced \textit{libspeech}, a library for audio processing, which remains under active development.
+\end{minipage}
+
+
+\resumeHeadingListEnd{}
+\end{multicols}
 
 
 \section{Hobbies}
