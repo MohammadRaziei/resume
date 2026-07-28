@@ -43,7 +43,6 @@ jobs:
           extra_fonts: ./fonts/*.ttf
           root_file: |
             resume.tex
-            resume-fa.tex
 
 
       - name: Upload DEPLOY file
