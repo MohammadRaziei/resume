@@ -571,19 +571,45 @@ This book discusses the application of reinforcement learning algorithms for con
 \textbf{Link:} \href{https://farbook.ir/BookView/61151/%d9%83%d8%a7%d8%b1%d8%a8%d8%b1%d8%af-%d9%8a%d8%a7%d8%af%da%af%d9%8a%d8%b1%d9%8a-%d8%aa%d9%82%d9%88%d9%8a%d8%aa%d9%8a-%d8%af%d8%b1-%d9%83%d9%86%d8%aa%d8%b1%d9%84-%d8%a7%d8%aa%d9%88%d9%85%d8%a8%d9%8a%d9%84-%d9%87%d8%a7%d9%8a-%d8%ae%d9%88%d8%af%d8%b1%d8%a7%d9%86}{\uline{Publisher Link}}
 
 % ---- Journal Paper ----
-\item \faFile\hspace{3pt} \textbf{ESACT: An Index-Reordering Approach to Eliminate Bank Conflicts in Parallel Prefix-Sum Algorithms without Shared Memory Padding}. Submitted to \textit{Journal of Parallel and Distributed Computing}, 2024.\\
+\item \faFile\hspace{3pt} \textbf{ESACT: An Index-Reordering Approach to Eliminate Bank Conflicts in Parallel Prefix-Sum Algorithms without Shared Memory Padding}. \textit{IEEE Access}, 2026.\\
 \href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}, 
 \href{https://sina.sharif.edu/~reza.kazemi/}{\uline{Reza Kazemi}}, 
 \href{https://sina.sharif.edu/~matin/}{\uline{Matin Hashemi}}\\
-\textbf{Abstract:} Bank conflicts significantly impact the performance of parallel algorithms on GPU architectures by serializing memory accesses. This issue particularly affects parallel prefix sum (scan) computations... We introduce the Efficient Sequentially-Addressed Calculating Tree (ESACT), a novel parallel scan algorithm that eliminates bank conflicts without relying on memory padding. ESACT reconfigures the Blelloch algorithm into a sequential addressing scheme using optimized reordered indices...
+\href{https://ieeexplore.ieee.org/document/11622323}{\uline{doi: 10.1109/ACCESS.2026.11622323}}\\
+\textbf{Abstract:} Shared-memory bank conflicts can severely limit GPU performance by serializing accesses, especially in parallel prefix-sum (scan) kernels. The Blelloch scan is work-efficient, but its interleaved addressing pattern creates heavy bank conflicts. Existing remedies, such as shared-memory padding, alleviate the problem at the cost of extra memory and reduced flexibility. This paper introduces the Efficient Sequentially Addressed Calculating Tree (ESACT), a parallel scan algorithm backed by a complete mathematical framework, that eliminates bank conflicts without padding. ESACT converts the Blelloch scan into a sequential-addressing scheme through a mathematically-derived permutation matrix, enabling conflict-free transfers from global memory to shared memory and improving GPU utilization. Experiments on several NVIDIA GPUs show speedups of up to 27.24\% over the vanilla Blelloch scan and consistent gains over its padded version. ESACT also supports variable input sizes through efficient downsampling and both exclusive and inclusive scans, making it a practical optimization for GPU prefix-sum workloads.
+
+
+\item \faFile\hspace{3pt} \textbf{A Lightweight ECAPA-TDNN Framework for Persian Speech Emotion Recognition}. \textit{International Journal of Web Research}, 2026.\\
+\href{https://www.linkedin.com/in/mobina-esmaeili-28b7aa233/}{\uline{Mobina Esmaeili}}, 
+\href{https://mohammadraziei.github.io}{\uline{Mohammad Raziei}}, 
+\href{https://www.linkedin.com/in/vajiheh-sabeti-92632583/}{\uline{Vajiheh Sabeti}}\\
+\href{https://doi.org/10.22133/ijwr.2026.582357.1340}{\uline{doi: 10.22133/ijwr.2026.582357.1340}}\\
+\textbf{Abstract:} Speech emotion recognition (SER) plays an important role in affective computing and human–computer interaction. However, developing robust SER systems for low-resource languages such as Persian remains challenging due to limited annotated data, class imbalance, inter-speaker variability, and acoustic overlap among emotion categories. This study proposes a compact transfer-learning framework for Persian SER based on the ECAPA-TDNN architecture together with a novel Emotion-Aware Loss. By incorporating inter-emotion similarity into the optimization objective, the proposed method improves discrimination between acoustically similar emotion categories without modifying the underlying network architecture. Experiments on the speaker-independent ShEMO benchmark demonstrate that the proposed framework achieves 83.04\% Accuracy, 88.54\% Unweighted Average Recall (UAR), and 88.24\% F1-score, consistently outperforming ECAPA-TDNN baselines trained with cross-entropy, standard Additive Angular Margin Softmax (AAM-Softmax), and fixed similarity weighting. The results demonstrate that similarity-aware optimization improves emotional representation learning while preserving the compact architecture of ECAPA-TDNN, making the proposed framework an effective approach for Persian speech emotion recognition.
 \resumeHeadingListEnd{}
 
 
 
+%-----------AWARDS--------------------------
+% This section highlights your achievements and recognitions
+
+\section{Awards \& Honors}
+\resumeHeadingListStart{}
+
+\item \faTrophy\hspace{3pt} \textbf{Elite Talents Admission}: Admitted to the Ph.D. program at Sharif University of Technology without entrance exam through the Elite Talents Foundation (2024)
+
+\item \faTrophy\hspace{3pt} \textbf{Top Industry Rank}: B.Sc. thesis achieved the top rank in the industry (2019) — evaluated by a panel of professors and industry judges
+
+\item \faTrophy\hspace{3pt} \textbf{National University Entrance Exam}: Ranked 461 among all participants in the national Master's entrance exam
+
+\item \faTrophy\hspace{3pt} \textbf{Algora Top 1\%}: Ranked among the top 1\% of programmers worldwide in the C/C++ domain on the Algora platform (based on GitHub activities)
+
+
+\resumeHeadingListEnd{}
+%---------------------------------------------
+
 
 %---------------------------------------------
 
-\newpage
 \section{Some Projects}
 
 \noindent{\faProjectDiagram\hspace{3pt}\bfseries Programming Projects:}
